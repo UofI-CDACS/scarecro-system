@@ -1,7 +1,7 @@
 # SCARECRO 
 The Sensor Collection and Remote Environment Care Reasoning Operation (SCARECRO) software repo
 
-![SCARECRO Post Logo](/imgs/Scarecro%20Post%20Logoldpi.png)
+![SCARECRO Post Logo](/docs/README.png)
 
 ## Status
 This repository is a work in progress. An initial version of SCARECRO is implemented in several test areas. We are currently in the process of refactoring the software as we release it open-source. 
