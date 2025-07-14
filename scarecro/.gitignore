@@ -15,6 +15,7 @@ configs/handlers/*
 #Message Configurations 
 configs/messages/*
 !configs/messages/__init__.py 
+!configs/messages/default_sensor.json 
 #Other configurations 
 configs/other/*
 !configs/other/__init__.py 
