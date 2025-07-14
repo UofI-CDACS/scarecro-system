@@ -9,8 +9,6 @@ logging.basicConfig(level=logging.DEBUG, format='%(levelname)s - %(asctime)s - %
 #logging.Formatter('%(levelname)s - %(asctime)s - %(message)s')
 #Need to come up with several message types and system classes 
 
-
-
 system_config = {
     "id": "test_device",
     "addresses": [

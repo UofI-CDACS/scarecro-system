@@ -16,7 +16,7 @@ A message configuration should be a json file containing a  dictionary with the 
 
         "id_field": The identification field of the message content. This will usually identify the unique device sending it, but may be another way of identifying distinct messages. 
 
-        "time_field": The field of the message the identifies where the time of message generation/receipt is located. 
+        "time_field": The field of the message that identifies where the time of message generation/receipt is located. 
 
         "inheritance": A string or list of string of messages this message inherits from. If the message inherits from a message which already has the id_field or time_field implemented, it would not need to implement the fields itself. 
 

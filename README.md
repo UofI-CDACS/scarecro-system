@@ -62,11 +62,11 @@ There are several principal abstraction components of the SCARECRO system: messa
 - [System](/docs/system_configuration.md)
 - [Updater](/docs/updater_configuration.md)
 
-### Software Setup and Installtion 
+### Software Setup and Installation
 - Install a SCARECRO gateway on a Raspberry Pi
 - Install a SCARECRO middle agent on a Linux computer 
 
-### Hardware Setup and Installtion 
+### Hardware Setup and Installation 
 - Building an outdoor SCARECRO gateway 
 
 ### The Data Gator 
