@@ -13,6 +13,7 @@ import system_object
 #Get the system config
 import src.system.system as system_class 
 #Need to come up with several message types and system classes 
+#MARKED - Obsolete 
 
 system_config = {
     "id": "test_device",
