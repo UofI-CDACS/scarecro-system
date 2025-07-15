@@ -1,11 +1,16 @@
 # Handlers Configurations
 Handlers handle incoming and outgoing messages, including performing additional processing as necessary. Typically handlers work on some aspect of data translations, transformation, or cleaning. Sometimes, this is implemented in carrier, but for some classes of sensors, it makes more sense to break out in a handler file. 
 
+Handlers are classes that deal with message content, including structuring, reorganizing, interpreting, or reorganizing message content. Handlers may not be necessary in all cases, especially if a message comes ready to use from a sensor. Handlers can be different on a incoming or outgoing message, or may only be used in one or the other. Handler functionality could be implemented entirely within a carrier, but it is often useful to separate this functionality, especially when working with multiple different brands of sensors using the same communication protocol (like several bluetooth sensors with different manufacturers). Handler configurations, should, at minimum, have a source field which indicates their source code class implementation. 
+
+Why are handlers necessary? Sometimes you might have a group of sensors that use related interpration or cleaning functions which are useful to have decoupled from the actual sending/receiving procotols, especially if those protocols are shared with others types of sensors or data sources. 
+
 ## Configuring Handlers 
+
+[For inheritance and keyword substitution, see this file](configuration_inheritance_and_keyword_substitution.md)
 
 Handler configurations should at least the following keys:
 - "source", pointing to the name of the python file implementing the particular task class (located in src/tasks). 
-
 
     {
         "source": name_of_task_class.py 

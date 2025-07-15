@@ -1,6 +1,6 @@
 # Messages 
 
-Any type of message packet send through the SCARECRO system must have a message configuration attached to it in order for it to be routed and parsed effectively. Message configurations live
+Any type of message packet send through the SCARECRO system must have a message configuration attached to it in order for it to be routed and parsed effectively. 
 
 ## Message Configuration  
 Message configurations are located here: 
@@ -21,6 +21,8 @@ A message configuration should be a json file containing a  dictionary with the 
         "inheritance": A string or list of string of messages this message inherits from. If the message inherits from a message which already has the id_field or time_field implemented, it would not need to implement the fields itself. 
 
     }
+
+[For inheritance and keyword substitution, see this file](configuration_inheritance_and_keyword_substitution.md)
 
 One message configuration that comes with the system by default is **default_sensor.json**. This json file contains the dictionary:
 

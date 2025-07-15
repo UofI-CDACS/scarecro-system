@@ -55,12 +55,12 @@ The structure of the repository is as follows:
 There are several principal abstraction components of the SCARECRO system: messages (abstractions on which information packets are based), carriers (abstractions of communication protocols on which packets are sent/received), handlers (abstractions of messaging operations such as translation, transformation, and cleaning), tasks (abstractions of functional operations to keep the system running depending on how it is configured), the system (which manages all components together), and an optional updater (an meta-system management component)
 
 - [SCARECRO System Overview:](/docs/README.md) This file gives a comprehensive overview of how all the components work in the SCARECRO system
-- [Messages](/docs/message_configuration.md)
+- [Messages](/docs/messages.md)
 - [Carriers](/docs/carrier_class.md)
-- [Handlers](/docs/handler_configuration.md)
-- [Tasks](/docs/task_configuration.md)
+- [Handlers](/docs/handler_class.md)
+- [Tasks](/docs/task_class.md)
 - [System](/docs/system_class.md)
-- [Updater](/docs/updater_configuration.md)
+- [Updater](/docs/updater_class.md)
 
 ### Software Setup and Installation
 - Install a SCARECRO gateway on a Raspberry Pi

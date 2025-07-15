@@ -3,6 +3,9 @@
 Carriers send and receive messages. There analogous component in the post office illustration could be a mail car, a mail truck, a door-to-door mail carrier, or even a mail plane. Carrier configurations should have, at minimum, a source field indicating the source code implementation of the carrier.
 
 ## Carrier Configuration
+
+[For inheritance and keyword substitution, see this file](configuration_inheritance_and_keyword_substitution.md) 
+
 Carriers are configured with carrier specific information that
 will vary substantially by the particular carrier. 
 

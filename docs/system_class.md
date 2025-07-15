@@ -447,7 +447,7 @@ When the enveloped message(s) is/are posted along with the address via the "post
 * The message is checked for any "on_message" triggers that need to be executed if that particular message is received. Those triggers are then executed. 
 
 There are some cases where you may not use the address. In this case, you can use the 
-**post_messages_by_type** function, which takes in the enveloped messages and message type.
+**post_messages_by_message_type** function, which takes in the enveloped messages and message type.
 
 ### Picking Up Messages from the Message Table 
 The carrier or task picks up post office messages via the
