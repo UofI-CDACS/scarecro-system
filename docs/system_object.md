@@ -19,7 +19,7 @@ addresses:
 tasks:
     A list of task configuration names that are in place for the system. These names should correspond to the names of json files in the configs/tasks folder.
 
-### System Object Responsibilities 
+## System Class Responsibilities 
 The system object is the main "brain" of the SCARECRO system. It is responsible for:
 * Initializing itself with the proper functionality it is configured for. This includes:
     * Ensuring proper inheritance on all configurations
