@@ -56,10 +56,10 @@ There are several principal abstraction components of the SCARECRO system: messa
 
 - [SCARECRO System Overview:](/docs/README.md) This file gives a comprehensive overview of how all the components work in the SCARECRO system
 - [Messages](/docs/message_configuration.md)
-- [Carriers](/docs/carrier_configuration.md)
+- [Carriers](/docs/carrier_class.md)
 - [Handlers](/docs/handler_configuration.md)
 - [Tasks](/docs/task_configuration.md)
-- [System](/docs/system_configuration.md)
+- [System](/docs/system_class.md)
 - [Updater](/docs/updater_configuration.md)
 
 ### Software Setup and Installation

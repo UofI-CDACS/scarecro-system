@@ -24,8 +24,6 @@ class Radio_433():
         This driver doesn't really need anything configuration-wise
         String matches and drivers are provided on an address level 
         """
-        #For mongo, need to know if gateway or middle agent
-        #Because gateways use slightly outdated version. 
         self.config = config.copy()
         self.send_addresses = send_addresses.copy()
         self.receive_addresses = receive_addresses.copy()

@@ -1,7 +1,7 @@
 # System Class 
 
 ## Purpose of the System Class
-The system object is effectively the control scheme for the entire SCARECR system. It handles all of the information routing and interim storage. The system object is initialized with a system configuration. In general, to run a scarecro system, you:
+The system class is effectively the control scheme for the entire SCARECR system. It handles all of the information routing and interim storage. The system class is initialized with a system configuration. In general, to run a scarecro system, you:
 - initialize the system class with the system configuration 
 - initialize the system ecosystem with the init_ecosystem() function
 - start the system schedule with the start_scheduler() function
@@ -20,7 +20,7 @@ tasks:
     A list of task configuration names that are in place for the system. These names should correspond to the names of json files in the configs/tasks folder.
 
 ## System Class Responsibilities 
-The system object is the main "brain" of the SCARECRO system. It is responsible for:
+The system class is the main "brain" of the SCARECRO system. It is responsible for:
 * Initializing itself with the proper functionality it is configured for. This includes:
     * Ensuring proper inheritance on all configurations
     * Ensuring keyword substitution on all configurations
@@ -169,7 +169,7 @@ You can see that only the latest message from each possible sender (indicated by
 
 ### Initializing the system class 
 
-The system object expects a system configuration dictionary to be located in configs/system in a file called system.json, which contains one json dictionary following the config format noted prior. However, this expectation can be overriden by passing the system a custom system configuration dictionary, which it will use instead. 
+The system class expects a system configuration dictionary to be located in configs/system in a file called system.json, which contains one json dictionary following the config format noted prior. However, this expectation can be overriden by passing the system a custom system configuration dictionary, which it will use instead. 
 
 The init() function copies over the system configuration, sets the system id, and a connection and updater variable. 
 
@@ -183,13 +183,13 @@ When the init_ecosystem() function is called, the system will do the following:
 - **Grab all the carrier configs**, related to the active addresses. The system will try and resolve all inheritance and substitution in the carrier configs at this step. 
 - **Grab all task configs**, indicated as active in the system configuration. 
 
-2. **Create a message table**: This system will create an internal message table, with a new entry for each configured message in the system. This new entry for each message is a dictionary with the latest_entry_id field defaulting to 0, a new semaphore object specific to that message type, and a "messages" field linked to an empty dictionary. 
+2. **Create a message table**: This system will create an internal message table, with a new entry for each configured message in the system. This new entry for each message is a dictionary with the latest_entry_id field defaulting to 0, a new semaphore class specific to that message type, and a "messages" field linked to an empty dictionary. 
 
-7. **Instantiate the handler objects**: The system will create a new handler object from indicated source code based on the active handler object configurations. This will be stored in the system handler dict (self.handlers) indexed by the handler name.  
+7. **Instantiate the handler classes**: The system will create a new handler class instance from indicated source code based on the active handler instance configurations. This will be stored in the system handler dict (self.handlers) indexed by the handler name.  
 
-8. **Instantiate the carrier objects**: The system will create a new carrier from the indicated source code based  on the active carrier object configurations. This will be stored in the system carrier dict (self.carriers) indexed by the carrier name. 
+8. **Instantiate the carrier classes**: The system will create a new carrier from the indicated source code based  on the active carrier class instance configurations. This will be stored in the system carrier dict (self.carriers) indexed by the carrier name. 
 
-9. **Instantiate the task objects**: The system will create a new task class from the indicated source code based on the active task class configurations. These will be stored in the system task dict (self.tasks) indexed by the task name. 
+9. **Instantiate the task classes**: The system will create a new task class instance from the indicated source code based on the active task class configurations. These will be stored in the system task dict (self.tasks) indexed by the task name. 
 
 10. **Initialize the updater code**., if one is set. TODO: Fill in more 
 
@@ -271,7 +271,7 @@ For example:
         "handler_name": {
             "addresses": [list of addresses that use this handler],
             "content": handler config, 
-            "object": reference to actual class object of handler instantiation 
+            "object": reference to actual class instance of handler instantiation 
         }  
     }
 
@@ -298,7 +298,7 @@ A dictionary stored in the self.carriers variable of the form:
         "carrier_name": {
             "addresses": [list of addresses that use this carrier],
             "content": carrier config, 
-            "object": reference to actual class object of carrier instantiation 
+            "object": reference to actual class instance of carrier instantiation 
         }  
     }
 
@@ -349,8 +349,8 @@ In order to schedule system functionality correctly, the system needs to underst
     {
         "job_id":
         {
-            "object_name": name of the configured class object in the system
-            "object": Reference to class object that runs the function
+            "object_name": name of the configured class instance  in the system
+            "object": Reference to class instance that runs the function
             "job_id": Unique id of the job
             "function": function to run
             "arguments": arguments the pass to the function, in a list
@@ -369,18 +369,18 @@ Where each message type in the dictionary has a list of associated job ids that 
 
 The above dictionaries are created based on the durations configured in both the addresses and the tasks configurations. 
 
-After the **scheduler_dict** object is created, the jobs can be scheduled with the scheduler. Jobs with a numeric duration or a duration equal to "always" are scheduled with the scheduler. Jobs with a duration that doesn't fit these categories are not scheduled. Carriers and tasks are scheduled nearly the same way, except carrier object functions expect the duration value, which is appended to their arguments field of the job scheduling. 
+After the **scheduler_dict** object is created, the jobs can be scheduled with the scheduler. Jobs with a numeric duration or a duration equal to "always" are scheduled with the scheduler. Jobs with a duration that doesn't fit these categories are not scheduled. Carriers and tasks are scheduled nearly the same way, except carrier class functions expect the duration value, which is appended to their arguments field of the job scheduling. 
 
 
 ### Interacting with the System  Object 
-- importing the system object 
+- importing the system class instance 
 - enveloping messages
 - posting/picking up messages from the system message table 
 - getting the system id 
 
-#### Importing the System Object
+#### Importing the System Class Instance
 
-For carrier to use the system object, the carrier needs to import the system object: 
+For carrier to use the system class instance, the carrier needs to import the system object: 
 
     import system_object 
 
@@ -391,7 +391,7 @@ Then the carrier will need to reference the functions on the system attribute of
 
 ### Enveloping the Message
 
-To envelope the message, the carrier or task can either implement the enveloping format around the message themselves, or they can use the envelope_message function of the system object. The __envelope_message__ function takes two arguments:
+To envelope the message, the carrier or task can either implement the enveloping format around the message themselves, or they can use the envelope_message function of the system class instance. The __envelope_message__ function takes two arguments:
 
 1. The raw message (in a dictionary format)
 2. The address associated with the message 
@@ -435,7 +435,7 @@ Where the raw message was:
 
 
 ### Posting Messages to the Message Table 
-Carriers (see Writing a New Carrier) should have at minimum, a receive or send function. If the carrier is written to receive messages, at some point in the receive function (or in a sub-function executed by the receive function), the carrier should at some point use the __post_messages__ function of the system object to drop the messages off at the post office. The function takes two arguments:
+Carriers (see Writing a New Carrier) should have at minimum, a receive or send function. If the carrier is written to receive messages, at some point in the receive function (or in a sub-function executed by the receive function), the carrier should at some point use the __post_messages__ function of the system class instance to drop the messages off at the post office. The function takes two arguments:
 
 1. The message (or list of messages), in enveloped format,
 2. The name of the address the message is being sent on 
@@ -462,3 +462,4 @@ In a case where the address is not relevant, use **pickup_messages_by_type** fun
 Some code functionality may need the system id. That can be gained from the system using the **return_system_id** function which takes no arguments and returns the id of the system. 
 
 TODO: Visuals 
+TODO: Add system config examples 
