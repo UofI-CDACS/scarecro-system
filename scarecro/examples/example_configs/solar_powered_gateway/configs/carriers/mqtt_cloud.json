@@ -1,0 +1,12 @@
+{
+    "source": "mqtt",
+    "mqtt_url": "your_cloud_mqtt_url",
+    "mqtt_port": 8883,
+    "mqtt_username": "your_mqtt_username",
+    "mqtt_password": "your_mqtt_password",
+    "qos": 1,
+    "client_id": "sensor_sender",
+    "version": 5,
+    "system_id": "$system_id",
+    "monitor_connection": false
+}

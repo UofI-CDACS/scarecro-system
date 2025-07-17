@@ -1,0 +1,12 @@
+{
+    "inheritance":[],
+    "handler": null,
+    "handler_function": null,
+    "send_or_receive": "receive",
+    "message_type": "gateway_stats",
+    "carrier": "underlying_system",
+    "duration": 300,
+    "additional_info": {
+        "function": "status_reading"
+    } 
+}

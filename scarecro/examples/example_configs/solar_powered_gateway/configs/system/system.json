@@ -1,0 +1,12 @@
+{
+        "id": "gateway_id",
+        "addresses": [
+            "gateway_stats_in",
+            "renogy_ble_in,
+            "cloud_mqtt_send_immediate"
+        ],
+        "tasks": [
+            "fan_check",
+            "pat_watchdog"
+        ]
+}

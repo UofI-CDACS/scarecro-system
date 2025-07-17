@@ -1,0 +1,6 @@
+{
+    "source": "BLE",
+    "read_method": "write_read",
+    "listening_interval": 90
+}
+

@@ -246,7 +246,7 @@ Now, we need to make sure the system config uses this new address. We will updat
         "addresses": [
             "kkm_ble_in",
             "bmp280_in,
-            "mongo_local_immediate.json"
+            "mongo_local_immediate"
         ]
     }
 

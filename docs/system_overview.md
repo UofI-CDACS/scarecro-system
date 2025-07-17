@@ -66,9 +66,9 @@ There are a couple of special system tasks that are also worth noting:
 
 ## Examples: 
 - To see an example of how you might think about the design and set up of a custom SCARECRO system, check out [an example system setup here](example.md)
-- For an example configuration for just a solar-powered raspberry pi gateway reporter [check out the tutorial here]()
+- For an example configuration for just a solar-powered raspberry pi gateway reporter [check out the tutorial here](example_solar_gateway.md)
 - For an an advanced example configuration with a gateway,  middle agent, and system tasks, [check out the tutorial here]()
 - For an example configuration for just an API machine, [check out the tutorial here]()
 
 ## Tutorials 
-TODO: Fill out what pathways would be useful to learn 
+TODO: Fill out what pathways would be useful to learn - multiple potential locations for these  

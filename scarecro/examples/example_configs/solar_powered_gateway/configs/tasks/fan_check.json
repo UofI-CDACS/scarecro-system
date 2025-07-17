@@ -1,0 +1,9 @@
+{
+    "source": "fan",
+    "function": "fan_check",
+    "arguments": {},
+    "duration": 60,
+    "fan_on_temp": 37.0,
+    "fan_off_temp": 34.0,
+    "power_pins": [18, 5]
+}

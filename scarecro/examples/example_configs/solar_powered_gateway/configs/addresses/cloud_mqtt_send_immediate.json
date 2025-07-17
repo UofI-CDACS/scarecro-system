@@ -1,0 +1,15 @@
+{
+    "inheritance":[],
+    "message_type": [
+        "gateway_stats",
+        "renogy_solar_charger",
+        ],
+    "handler": null,
+    "handler_function": null,
+    "send_or_receive": "send",
+    "carrier": "mqtt_cloud",
+    "duration": "on_message",
+    "additional_info": {
+        "topic": "$msg_type"
+    } 
+}

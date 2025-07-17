@@ -1,0 +1,16 @@
+{
+    "inheritance":[],
+    "message_type": "renogy_solar_charger",
+    "handler": "$msg_type",
+    "handler_function": "process",
+    "send_or_receive": "receive",
+    "carrier": "ble_write_read",
+    "duration": 30,
+    "additional_info": {
+        "data_uuid": "0000fff1-0000-1000-8000-00805f9b34fb",
+        "connection": true,
+        "write_uuid": "0000ffd1-0000-1000-8000-00805f9b34fb",
+        "data_to_write": [255, 3, 1, 0, 0, 34, 209, 241],
+        "mac_addresses": ["your_renogy_mac_address"]
+    } 
+}

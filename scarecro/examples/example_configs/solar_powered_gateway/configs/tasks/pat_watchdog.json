@@ -1,0 +1,7 @@
+{
+    "source": "watchdog",
+    "function": "pat_the_dog",
+    "arguments": {},
+    "duration": 15,
+    "pin": 4
+}
