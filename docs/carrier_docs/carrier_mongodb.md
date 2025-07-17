@@ -100,9 +100,9 @@ TODO: Link [Check out the installation instructions for the library here]()
 
 
 ## Other Functionality: 
-- Please see the relevant documentation in the [implemented tasks section here](TODO)
-- Updater Task (System type Task, implemented in this carrier): [See the documentation for the updater class here](../updater_class.md). This driver implements the task of fetching updates to configuration via the fetch_configurations function, which can be configured as a task triggered by the "remote_config_updated" message type. This function fetches the new configurations and then posts a "fetched_config" message when finished. 
-- Recovery Task (System type task, implemented in this carrier): [See the documentation for the recovery class here](../recovery.md). This uses:
+- Please see the relevant documentation in the [implemented tasks section here](task_docs/system_maintenance.md)
+- Updater Task (System type Task, implemented in this carrier): [See the documentation for the updater class here](../task_docs/updater_class.md). This driver implements the task of fetching updates to configuration via the fetch_configurations function, which can be configured as a task triggered by the "remote_config_updated" message type. This function fetches the new configurations and then posts a "fetched_config" message when finished. 
+- Recovery Task (System type task, implemented in this carrier): [See the documentation for the recovery class here](../task_docs/recovery.md). This uses:
     - the fetch_recovery_data function (triggered on a recovery_data_request message) to get recovery data from the database within a certain time range. It adds a recovery source key to recors in the range as well, and then posts a recovery_data message. 
     - the handle_recovery_data_message function (triggered on a recovery data message) which grabs the recovery data, eliminates duplicate messages if already in the database for those configured to use that features, and inserts the new entries
     - note that the flow of this information is usually from a local mongo gateway driver to send the recovery data to the cloud mongo driver to recieve the recovery data and possibly eliminate duplicates.  

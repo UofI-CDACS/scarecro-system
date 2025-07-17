@@ -62,7 +62,7 @@ There are several principal abstraction components of the SCARECRO system: messa
 - [Handlers](/docs/handler_class.md)
 - [Tasks](/docs/task_class.md)
 - [System](/docs/system_class.md)
-- [Updater](/docs/updater_class.md)
+- [Updater](/docs/task_docs/updater_class.md)
 
 ### Software Setup and Installation
 - Install a SCARECRO gateway on a Raspberry Pi

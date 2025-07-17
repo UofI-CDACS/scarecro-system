@@ -111,8 +111,8 @@ TODO: Link [Check out the installation instructions for the library here]()
 
 
 ## Other Functionality: 
-- Please see the relevant documentation in the [implemented tasks section here](TODO) 
-- Checking Connection (System type task, partly implemented in this carrier): [See the documentation for the recovery class here](../recovery.md). This uses:
+- Please see the relevant documentation in the [implemented tasks section here](task_docs/system_maintenance.md)
+- Checking Connection (System type task, partly implemented in this carrier): [See the documentation for the recovery class here](../task_docs/recovery.md). This uses:
     - the check_connection_status to check the connection status to the broker IF the monitor_connection paramter true. If it has lost connection, is posts a connection_status message with the disconnect field filled in. If the connection has been restored, it posts the appropriate restored connection message. 
 
 ## Behavior: 

@@ -107,6 +107,24 @@ src/carriers/
 - If duration is "always" for a write_read read, there will be a 5 minute (300 second) sleep between readings 
 - TODO: Not sure we are actually using the conenction variable for anything 
 - The renogy solar charger in particular has an odd bluetooth disconnect problem that sometimes requires restarting the bluetooth on the system. If the carrier runs into errors, it will try to restart the system bluetooth to solve this. If that causes other issues in your setup, please be aware. 
+- The message from the BLE device read in from this carrier will usually take the form:
+
+        {
+            "name": name,
+            "mac_address": address,
+            "rssi": rssi,
+            "packet": packet
+        }
+
+for a beacon, and:
+
+        {
+            "mac_address": address,
+            "packet": packet
+        }
+
+for write_read. The parsing of the packet is left up to the associated handler. 
+
 
 ## Tested 
 - kkm k6p beacon

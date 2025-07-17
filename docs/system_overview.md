@@ -61,20 +61,14 @@ Why are handlers necessary? Sometimes you might have a group of sensors that use
 
 There are a couple of special system tasks that are also worth noting:
 
-- [The Updater Class, used for updating system configs, described here](updater_class.md)
-- [The Recovery Class, used for recoverying locally stored data for outages, described here](recovery.md)
+- [The Updater Class, used for updating system configs, described here](task_docs/updater_class.md)
+- [The Recovery Class, used for recoverying locally stored data for outages, described here](task_docs/recovery.md)
 
-## Example: 
-To see an example of how you might set up the SCARECRO system, check out [an example system setup here](example.md)
+## Examples: 
+- To see an example of how you might think about the design and set up of a custom SCARECRO system, check out [an example system setup here](example.md)
+- For an example configuration for just a solar-powered raspberry pi gateway reporter [check out the tutorial here]()
+- For an an advanced example configuration with a gateway,  middle agent, and system tasks, [check out the tutorial here]()
+- For an example configuration for just an API machine, [check out the tutorial here]()
 
-
-## Currently implemented 
-### Currently implemented carriers
-* 433 MHz: receive-always
-* MQTT: receive-always, receive-numeric, send-numeric
-* BLE (in progress) - receive-always, receive-numeric 
-
-### Currently implmented handlers 
-* kkm_k6p: process function 
-* renogy_solar_charger: process function
-
+## Tutorials 
+TODO: Fill out what pathways would be useful to learn 

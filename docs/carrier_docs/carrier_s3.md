@@ -84,7 +84,7 @@ src/carriers/
 
 
 ## Other Functionality: 
-- - Please see the relevant documentation in the [implemented tasks section here](TODO) 
+- - Please see the relevant documentation in the [implemented tasks section here](task_docs/system_maintenance.md)
 - Handle New Firmware Task (System Level Task Implemented in this carrier): Uses the handle_new_firmware_message function triggered on message by the "firmware_image" message type to download a new firmware image. This message expects a cloud and disk, as well as a config path and will send a "confirm_receipt" message on success.  
 
 ## Behavior: 
