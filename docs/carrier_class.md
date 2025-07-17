@@ -235,6 +235,11 @@ The example return_object function for the mqtt carrier is below:
 
 ### Documenting a New Carrier 
 If you create a new carrier, you need to document what configurations the carrier supports, including
+- **Dependencies**: What packages (and versions, potentially) do you need to run the
 - **Needed Carrier Configuration Info**: What information does the carrier implementation need in its own configuration? This could include something like a connection string, a username/password, or even a GPIO pin. 
 - **Send/Receive and Durations**: Does the carrier support sending or receiving or both? What duration types does it support for each function (send/receive)
-- **Address Configurations**: What information, if any, does an address need to include in its "additional_info" section to tie a message the carrier receives to a specific address, or to listen on that address in the first place? For example, for an mqtt carrier, this might be the sensor-specific mqtt topic. For a database carrier, this might be the database table name the address is tied to.  
+- **Address Configurations**: What information, if any, does an address need to include in its "additional_info" section to tie a message the carrier receives to a specific address, or to listen on that address in the first place? For example, for an mqtt carrier, this might be the sensor-specific mqtt topic. For a database carrier, this might be the database table name the address is tied to. 
+- **Defaults**: What are default values for configurations?
+- **Other Functionality**: Does the carrier have any other functions that can be implemented as tasks or something similar 
+- **Behavior**: Are there any particular or unusual behaviors the carrier exhibits in how it carries out its sending or receiving actions? 
+- **Examples**: Giving example configurations and addresses using the carrier is very helpful. 

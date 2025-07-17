@@ -29,6 +29,8 @@ class Camera():
     def __init__(self, config, send_addresses, receive_addresses, message_configs):
         """
         This driver doesn't really need anything configuration-wise
+        - id
+        - keep images 
         String matches and drivers are provided on an address level 
         """
         #For mongo, need to know if gateway or middle agent

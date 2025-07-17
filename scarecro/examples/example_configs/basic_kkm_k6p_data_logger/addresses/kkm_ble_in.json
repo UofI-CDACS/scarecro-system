@@ -1,0 +1,13 @@
+{
+    "inheritance":[],
+    "message_type": "kkm_k6p",
+    "handler": "$msg_type",
+    "handler_function": "process",
+    "send_or_receive": "receive",
+    "carrier": "ble_beacon",
+    "duration": 300,
+    "additional_info": {
+        "data_uuid": "0000feaa-0000-1000-8000-00805f9b34fb",
+        "connection": false
+    } 
+}

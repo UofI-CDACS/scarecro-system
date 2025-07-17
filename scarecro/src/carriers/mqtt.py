@@ -19,7 +19,11 @@ class MQTT_Client():
             mqtt_port: the port of the mqtt connection. (Default 1883)
             mqtt_username: username for connection, defaults to None
             mqtt_password: password for connection, defaults to None
+            version: version of MQTT to use 
             client_id: client id of connection, very important to have 
+            system_id: id of the system
+            monitor_connection: whether or not to monitor the connected status of the broker
+            include_topic: whether or not to pass the topic to the resultant message
             qos: qos of mqtt messages. Defaults to 1. 
         """
         #arguments passed in 
@@ -34,7 +38,7 @@ class MQTT_Client():
 
         #Set up connection info 
         self.mqtt_url = self.config.get("mqtt_url", '127.0.0.1')
-        self.mqtt_port = self.config.get("mqtt_port", '1883')
+        self.mqtt_port = self.config.get("mqtt_port", 1883)
         self.mqtt_username = self.config.get("mqtt_username", None)
         self.mqtt_password = self.config.get("mqtt_password", None)
         self.qos = self.config.get("qos", 1)

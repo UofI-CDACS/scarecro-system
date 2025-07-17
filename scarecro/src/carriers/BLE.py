@@ -2,13 +2,13 @@ import sys
 import time 
 import logging 
 import json 
-import logging 
-sys.path.append("../scarecro")
-import system_object
-import util.util as util 
 import asyncio
 from bleak import BleakScanner, BleakClient
 import os 
+sys.path.append("../scarecro")
+import system_object
+import util.util as util 
+
 
 if logging.root.level > logging.DEBUG:
     logging.getLogger('bleak.backends.bluezdbus.scanner').setLevel(logging.WARNING)
@@ -29,8 +29,7 @@ class BLE():
         1. uuid of data to read 
         2. uuid of data to write AND data to write, if applicable 
         3. (optional) list of Mac address to filter by
-        4. String match if connection not needed. 
-        5. Connection (T/F) Needed to read the sensor 
+        4. Connection (T/F) Needed to read the sensor 
         """
         #arguments passed in 
         self.config = config 

@@ -1,0 +1,8 @@
+{
+    "source": "mongodb",
+    "connection_url": "127.0.0.1",
+    "database_name": "SCARECRO",
+    "version": 2.4, 
+    "persistent_connection": true,
+    "retain_days": 30
+}

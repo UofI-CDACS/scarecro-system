@@ -19,6 +19,7 @@ class Mongodb():
             connection_url
             version
             database_name
+            persistent connection 
         """
         #For mongo, need to know if gateway or middle agent
         #Because gateways use slightly outdated version. 

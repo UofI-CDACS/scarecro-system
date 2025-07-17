@@ -1,0 +1,8 @@
+{
+        "id": "gateway_id",
+        "addresses": [
+            "kkm_ble_in",
+            "bmp280_in,
+            "mongo_local_immediate.json"
+        ]
+}

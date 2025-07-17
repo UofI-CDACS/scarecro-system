@@ -2,11 +2,11 @@
 This guide will go over how the SCARECRO system is set up and configured based on your needs. We will go over a "hypothetical" example of potential system needs. 
 
 ## Scenario
-Let's say you're an apple orchard manager who has a business case to start collecting some data from the field. You have done your research, and decided that you want to collect the following sensor data:
+Let's say you're an apple orchard manager who has a business case to start collecting some data from the field. You have done your research, and decide that you want to collect the following sensor data:
 - temperature and humidity data from 20 kkm_k6p beacons, reporting on BLE (5 minute resolution)
 - pressure data from a bmp280 pressure sensor (10 minute resolution)
 
-You decide to use a SCARECRO raspberry pi solar-powered gateway station to collect the data, and you want to store your data in a local MongoDB database. 
+You decide to use a SCARECRO raspberry pi gateway station to collect the data, and you want to store your data in a local MongoDB database. 
 
 How do you set up the system? 
 
@@ -41,7 +41,7 @@ So you add your two new message files:
 Now, your messages are configured. 
 
 ## Second - Your Carrier Configurations
-Now, you need to configure some carriers. Carriers are the communication protocols that will allow you to connect to your sensors. You know that:
+Now, you need to configure some carriers. Carriers are the communication protocols that will allow you to connect to your sensors. [You can see more about how carriers work here](carrier_class.md) You know that:
 - kkm_k6p sensors connect via BLE
 - bmp280 is a wired i2c device.  
 
@@ -60,11 +60,11 @@ The kkm_k6p is a beacon sensor, so you decide to create a BLE carrier (stored in
 
 **ble_beacon.json**
 
-{
-    "source": "BLE",
-    "read_method": "beacon",
-    "listening_interval": 15
-}
+    {
+        "source": "BLE",
+        "read_method": "beacon",
+        "listening_interval": 15
+    }
 
 This will use the BLE carrier source code. It will set the read method as beacon, and the listening interval at 15 (it will listen for data from the addresses you give for about 15 seconds total when it is run)
 
@@ -81,13 +81,13 @@ So, you create a carrier named i2c stored in (/configs/carriers/) that looks lik
 
 **i2c.json**
 
-{
-    "source": "i2c",
-    "id": "$system_id"
-}
+    {
+        "source": "i2c",
+        "id": "$system_id"
+    }
 
 ## Third - Your Handler Configurations 
-Now, you have your carrier and message configuration, you need to see if your sensors are going to take some difficult data translation/processing. You notice the bmp280 data manipulation is handled inside the carrier, and does not need anything extra. However, the kkm_k6p packet is tricky to translate, and you will need the kkm_k6p-specific byte formatting to do this effectively. You decide to make an instance of the kkm_k6p handler to do this. This handler configuration does not expect much, just the source code file name. So, in configs/handlers/, you create this file:
+Now, you have your carrier and message configuration, you need to see if your sensors are going to take some difficult data translation/processing. [You can see more about how handlers work here](handler_class.md) You notice the bmp280 data manipulation is handled inside the carrier, and does not need anything extra. However, the kkm_k6p packet is tricky to translate, and you will need the kkm_k6p-specific byte formatting to do this effectively. You decide to make an instance of the kkm_k6p handler to do this. This handler configuration does not expect much, just the source code file name. So, in configs/handlers/, you create this file:
 
 **kkm_k6p.json**
 
@@ -98,7 +98,7 @@ Now, you have your carrier and message configuration, you need to see if your se
 You are now finished configuring your handlers. 
 
 ## Fourth - Address Configurations
-You now need to tie these together. You need two addresses, one that routes your kkm_k6p data, and one that routes you bmp280 data. You know the BLE carrier needs the uuid and connection data, and the i2c carrier needs the i2c address of the sensor. So, in /configs/addresses/, you make the following two files: 
+You now need to tie these together. [You can see more about how addresses work here](addresses.md) You need two addresses, one that routes your kkm_k6p data, and one that routes your bmp280 data. You know the BLE carrier needs the uuid and connection data, and the i2c carrier needs the i2c address of the sensor. So, in /configs/addresses/, you make the following two files: 
 
 **kkm_ble_in.json**
 
@@ -122,7 +122,7 @@ This address says:
 - it will be handled by a handler with the same name as the message (substituted here - for more information on keyword substitution and inheritance, [check out this documentation page](configuration_inheritance_and_keyword_substitution.md))
 - the handler function that will be used to process the message is named "process"
 - the carrier will try to receive this message every 300 seconds, or 5 minutes
-- the carrier will use the given uuid to try and find this particular type of message
+- the carrier will use the given uuid (which you find in kkm_k6p documentation) to try and find this particular type of message
 - the carrier will not expect to have a persistent connection with the device 
 
 **bmp280_in.json**
@@ -155,7 +155,7 @@ Now, you can quickly check that everything aligns. All your configurations for c
 And in /src/handlers/
 - kkm_k6p.py 
 
-Now, in /configs/system/, you just need to note what addresses you plan to use in the system. Your system config will look like: 
+Now, in /configs/system/, you just need to note what addresses you plan to use in the system. [You can see more about how the system class works here](system_class.md) Your system config will look like: 
 
 **system.json**
 
@@ -212,6 +212,7 @@ Now, we want to decide how to store our data. We could have mongo check the mess
 
 
 **mongo_local_immediate.json**
+
     {
         "inheritance":[],
         "message_type": [   
@@ -231,7 +232,7 @@ Now, we want to decide how to store our data. We could have mongo check the mess
 This address says:
 - any time the system sees the "kkm_k6p" message or "bmp280" message in the message table, immediately **send** it to the local mongodb carrier 
 - no handler is needed for either of these messages (remember, by the time the kkm_k6p message gets to the message table, it's already been processed/translated by the incoming handler)
--the mongodb carrier expects information on what collection it should store it to, and in this case, we want to the collection name to be the same as the message type (substituting it)
+- the mongodb carrier expects information on what collection it should store it to, and in this case, we want to the collection name to be the same as the message type (substituting it)
 
 Since we added the carrier config, we need to be sure that in /src/carriers/, we have a code file named "mongodb.py" which implements our carrier class. 
 
@@ -258,15 +259,64 @@ Now, if you go inside the scarecro folder and run
 
 It will collect data from the kkm_k6p beacons every 5 minutes, collect data from the bmp280 sensor every 10 minutes, and every time it collects a new message, will store it to the local mongodb database. 
 
-TODO: Explain how you can test this in debug mode 
-TODO: These configuration files are stored in 
-- example_data/basic_kkm_bmp280_data_logger/
+## Seventh - Testing in Debug Mode
+One useful way to test your scarecro system setup is to try out your system configuration in debug mode. One way to do this is to write out the system configuration in a dictionary and add your setup into the tests folder. Inside the tests folder is (TODO: Add testing documentation) a file called **configuration_tester.py** which has a handy function:
+
+    run_test_configuration(system_config)
+
+You can import and pass your system config. This will run the SCARECRO system with your configuration in debug mode. You could make a python file:
+
+**test_my_custom_config.py**
 
 
-## More Advanced Operations 
+    import configuration_tester
+    system_config = {
+        "id": "gateway_id",
+        "addresses": [
+            "kkm_ble_in",
+            "bmp280_in,
+            "mongo_local_immediate.json"
+        ]
+    }
+    configuration_tester.run_test_configuration(system_config)
+
+To check it out by running:
+
+```bash
+    python3 tests/test_my_custom_config.py
+```
 
 
-## Notes 
-TODO: Explain more in-depth the overhead 
+Debug mode:
+- Prints the system storage of configs and objects on start-up
+- Prints the messaging table after each message receipt 
+
+## Finally - Running the Service 
+
+TODO: scarecro.service file
+
+## Try it
+If you would like to run this particular example (recommended on a raspberry pi), 
+the config files are stored are **/example_data/example_configs/basic_kkm_bmp280_data_logger/**
+
+
+## More Examples 
+- Very basic system
+- Configuring just a solar powered gateway 
+- Configuring just an web API machine 
+- Configuring a gateway and a cloud agent (more advanced)
+
+## Notes on Usage 
+You can see from this example that there is some significant overhead for a fairly simple sensor process. The SCARECRO is indeed some hefty overhead for minor functionality - the system is more useful in the cases where:
+- the number and types of sensors are more complex, or
+- multiple types of wireless communication protocols are used, or 
+- there is a wide variety of communication rates, or 
+- the same communication protocol is used for different sensors/rates, or
+- you have limited experience setting up wireless communication, or
+- you want to reuse existing upstream data infrastructure to the extent possible 
+
+
+## TODO: 
 TODO: Integrating a New Sensor or Communication Protocol 
 TODO: Add documentation links to different system classes.  
+TODO: In-depth diagrams 

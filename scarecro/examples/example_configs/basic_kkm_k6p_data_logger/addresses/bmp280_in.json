@@ -1,0 +1,12 @@
+{
+    "inheritance": [],
+    "handler": null,
+    "handler_function": null,
+    "send_or_receive": "receive",
+    "message_type": "bmp280",
+    "carrier": "i2c",
+    "duration": 600,
+    "additional_info": {
+        "i2c_address": 119
+    }
+}

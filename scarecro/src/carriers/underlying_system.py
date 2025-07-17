@@ -8,10 +8,10 @@ import time
 #https://stackoverflow.com/questions/42471475/fastest-way-to-get-system-uptime-in-python-in-linux
 import logging
 import sys 
+import socket 
 sys.path.append("../scarecro")
 import system_object
 import util.util as util 
-import socket 
 
 
 class UnderlyingSystem():

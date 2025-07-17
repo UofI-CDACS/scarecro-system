@@ -25,6 +25,7 @@ class S3_Bucket():
             access_key_id: Access key id of the S3 bucket
             secret_access_key: secret access key of the S3 bucket
             path: optional file path start of any files in the bucket (no trailing / allowed)
+            system_id: the id of the system 
         """
         #arguments passed in 
         self.config = config.copy() 

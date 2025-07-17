@@ -1,0 +1,15 @@
+{
+    "inheritance":[],
+    "message_type": [
+        "kkm_k6p",
+        "bmp280"
+    ],
+    "handler": null,
+    "handler_function": null,
+    "send_or_receive": "send",
+    "carrier": "mongodb_local",
+    "duration": "on_message",
+    "additional_info": {
+        "collection": "$msg_type"
+    } 
+}
