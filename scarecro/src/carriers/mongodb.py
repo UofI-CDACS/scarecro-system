@@ -523,7 +523,7 @@ class Mongodb():
             #If we indeed have new messages, send 'em 
             if content_send_list != []:
                 succ = self.insert_records(content_send_list, collection_name)
-                logging.debug(f"Inserted records for {address_name} into database")
+                logging.info(f"Mongo: Inserted records for {address_name} into database")
                 if not succ:
                     logging.error(f"Could not send messages on address {address_name} for collection {collection_name}", exc_info=True)
         #Disconnect if not a persistent connection 

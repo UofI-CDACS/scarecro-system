@@ -104,8 +104,8 @@ class MQTT_Client():
         #Get the topic
         try:
             topic_name = message.topic
-            #Debug for now
-            logging.debug(f"Got message {json.loads(message.payload)} on topic {message.topic}")
+            #Info for now 
+            logging.info(f"Got message {json.loads(message.payload)} on topic {message.topic}")
             #Map it to an address
             address_name = self.check_topic_map(topic_name)
             message_body = json.loads(message.payload)
