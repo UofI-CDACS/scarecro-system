@@ -34,7 +34,7 @@ class DataRecovery:
         if os.path.exists(self.connection_filename):
             connection_info = self.get_connection_file()
             if connection_info.get("status", None) == "disconnect":
-                logging.debug(f"Starting in disconnected state")
+                logging.info(f"Starting in disconnected state")
                 self.connected = False
                 system_object.system.set_system_lost_connection(True)
         else:
@@ -163,11 +163,11 @@ class DataRecovery:
             #See what kind of connection status and take 
             #The appropriate action 
             if connection_status == "disconnect":
-                logging.debug("Disconnect message received")
+                logging.info("Disconnect message received")
                 self.handle_disconnect(msg) 
 
             elif connection_status == "reconnect":
-                logging.debug("Reconnect message received")
+                logging.info("Reconnect message received")
                 self.handle_reconnect(msg) 
 
 def return_object(config):

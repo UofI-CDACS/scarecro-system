@@ -292,7 +292,7 @@ class MQTT_Client():
             if rc != 0:
                 self.num_missed_connections += 1
                 if self.num_missed_connections > 2 and self.alerted_lost_connection == False:
-                    logging.debug(f"Generating lost connection from mqtt")
+                    logging.info(f"Generating lost connection from mqtt")
                     self.alerted_lost_connection = True 
                     self.post_lost_connection_message()
             #If it did send, only send a restored connection message 
@@ -305,7 +305,7 @@ class MQTT_Client():
                 #If we noticed that we have alerted a lost connection, or 
                 #The system knows it had a lost connection 
                 if self.alerted_lost_connection or system_connection_lost:
-                    logging.debug(f"Generating restored connection from mqtt")
+                    logging.info(f"Generating restored connection from mqtt")
                     if self.alerted_lost_connection == True:
                         self.alerted_lost_connection = False
                     self.post_restored_connection_message()
