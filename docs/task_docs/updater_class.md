@@ -118,7 +118,7 @@ Here is the control we suggest for an update system, and which we have implement
 
 2. The remote_config_updated message should have an "on_message" trigger which activates a function that can get the updated config (like mongo). This same function posts a "fetched_config" message when completed. 
 
-3. The "fetched_config" config message should have an on_message trigger to send it via mqtt to the gateways via MQTT
+3. The "fetched_config" config message should have an on_message trigger to send it via mqtt to the gateways.
 
 4. The "fetched_config" config message should have an on_message task trigger when received by the gateway to activate the update_config function. This function should check if the gateway cares about the message (in updater config). If it does, it should write the new config to file and if successful, it should post local_config_updated message. 
 

@@ -141,7 +141,7 @@ This tasks is trigged on a recovery_data message, and is handled by the handle_r
 
 Messages:
 - connection_status (noted in task config)
-- fetch_recovery_data (noted in task config)
+- recovery_data_request (noted in task config)
 - recovery_data (for outbound sending) - noted in address 
 
 Carriers:

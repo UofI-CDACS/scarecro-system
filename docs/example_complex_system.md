@@ -1,7 +1,8 @@
-# Example Solar Powered Gateway System Configuration 
-For some users, the solar powered raspberry pi gateway setup is useful, but they might have custom technology inside the pi for their specific deployment need. This guide will discuss setting up a solar powered gateway system which will report system information (for gateway stats) and the renogy solar charger information every 5 minutes (300 seconds) to a cloud mqtt broker. The system will **not** use a local database in this case. However, it will use the watchdog timer and fan tasks.
+# Example Complex System - Gateway and Middle Agent 
 
-TODO: Link broader documentation 
+
+## Gateway - Sensors
+
 
 ## Equipment 
 - This guide assumes you are planning to use the setup for the solar-powered raspberry pi gateway, which you [check out how to build here]()
