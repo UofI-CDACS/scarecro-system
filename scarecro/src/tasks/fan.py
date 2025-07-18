@@ -33,7 +33,7 @@ class Fan:
         Turns on all fans connected to configured
         power pins 
         """
-        logging.debug(f"Turning on Fan, temp: {self.tempformatted}")
+        logging.debug(f"Turning on Fan, temp: {self.temp_formatted}")
         for pin in self.power_pins: 
             try:
                 command = f"pigs p {pin} 255"
