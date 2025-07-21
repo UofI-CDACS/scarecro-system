@@ -123,8 +123,8 @@ class DataRecovery:
             #If both the times are valid 
             if lost_connection_time and restored_connection_time:
                 enveloped_message = system_object.system.envelope_message_by_type(recovery_data_request_message, message_type)
+                logging.info(f"Posting request for recovery data {lost_connection_time} - {restored_connection_time}")
                 system_object.system.post_messages_by_type(enveloped_message, message_type)
-                logging.info(f"Posted request for recovery data {lost_connection_time} - {restored_connection_time}")
             else:
                 logging.error(f"One or more invalid times: lost connection {lost_connection_time} restored connection: {restored_connection_time}")
         except Exception as e:

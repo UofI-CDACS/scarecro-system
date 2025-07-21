@@ -9,9 +9,9 @@ import src.system.system as system_class
 logging.basicConfig(level=logging.INFO)
 system_object.system = system_class.return_object()
 system_object.system.init_ecosystem()
-logging.info("Scheduler Dictionary")
 system_object.system.print_scheduler_dict()
-logging.info("Message Routing Dictionary")
+#This will go away - MARKED
+system_object.system.print_configs(["addresses", "carriers"])
 system_object.system.print_on_message_routing_dict()
 system_object.system.start_scheduler()
 while True:
