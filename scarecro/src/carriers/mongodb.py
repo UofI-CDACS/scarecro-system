@@ -281,6 +281,10 @@ class Mongodb():
                         #Get the recovery data 
                         new_message_type = self.collection_message_mapping[single_collection]
                         entries = self.get_all_records_in_time_range(lost_connection_time, restored_connection_time, new_message_type, single_collection)
+                        #MARKED
+                        print(f"New message type {new_message_type}")
+                        print("Entries")
+                        print(entries)
                         #If the recovery data ain't empty, add it 
                         if entries != []:
                             recovery_data[new_message_type] = entries
