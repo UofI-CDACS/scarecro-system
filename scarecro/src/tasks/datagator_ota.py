@@ -23,7 +23,7 @@ class DataGatorOTA:
         """
         self.config = config.copy()
         self.duration = self.config.get("duration", )
-        print("Initializing a System Update Class") 
+        logging.info("Initializing a System Update Class") 
         self.config_dir = "configs"
         self.backup_dir = "generated_data/backup_configs/"
         self.await_dir = "generated_data/awaiting_configs/"

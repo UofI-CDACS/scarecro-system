@@ -182,7 +182,7 @@ class Mongodb(database.Database):
         return_val = True
         final_query = self.build_query(query)
         if verbose:
-            print(f"Final query {final_query}")
+            logging.info(f"Final query {final_query}")
         if final_query != {}:
             try:
                 if self.device == "gateway":
@@ -245,7 +245,7 @@ class Mongodb(database.Database):
         try:
             final_query = self.build_query(query)
             if verbose:
-                print(f"Final Query {final_query}")
+                logging.info(f"Final Query {final_query}")
             if final_query != {}:
                 try:
                     results = self.return_query(data_source_name, final_query)

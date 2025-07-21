@@ -251,6 +251,7 @@ class Mongodb():
         NOTE: This function is a little bit ugly and could possibly
         be improved in the future 
         """
+        logging.info("Request for Recovery Data: In MongoDb")
         try:
             recovery_data = {} 
             messages = system_object.system.pickup_messages_by_message_type(message_type=message_type, entry_ids=entry_ids)
@@ -273,6 +274,7 @@ class Mongodb():
                         logging.error(f"Could not get recovery entries for {single_collection}; {e}", exc_info=True)
                 #If we actually have some recovery data 
                 if recovery_data != {}:
+                    logging.info("Posting recovery data message")
                     self.post_recovery_data_message(msg_content, recovery_data)
         except Exception as e:
             logging.error(f"MongoDB could not fetch recovery data {e};", exc_info=True)

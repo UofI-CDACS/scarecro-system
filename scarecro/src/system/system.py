@@ -434,11 +434,11 @@ class System:
         """
         if isinstance(config_types, list):
             for config_type in config_types:
-                print(f"Configuration for {config_type}")
-                print(json.dumps(getattr(self, config_type), indent=4, default=str))
+                logging.info(f"Configuration for {config_type}")
+                logging.info(json.dumps(getattr(self, config_type), indent=4, default=str))
         else:
-            print(f"Configuration for {config_types}")
-            print(json.dumps(getattr(self, config_types), indent=4, default=str))
+            logging.info(f"Configuration for {config_types}")
+            logging.info(json.dumps(getattr(self, config_types), indent=4, default=str))
 
     def get_config_object_from_config_type(self, config_type):
         """
@@ -794,10 +794,10 @@ class System:
                 print_dict = {
                     sub_type: self.message_entries[sub_type]
                 }
-            print("---------Message Table Entries--------------")
+            logging.info("---------Message Table Entries--------------")
             for message_type in print_dict.keys():
-                print(message_type)
-                print(json.dumps(print_dict[message_type].get("messages", {}), indent=4))
+                logging.info(message_type)
+                logging.info(json.dumps(print_dict[message_type].get("messages", {}), indent=4))
         except Exception as e:
             logging.error(f"Could not print message entries dict; {e}", exc_info=True)
 
@@ -1279,9 +1279,9 @@ class System:
         """
         try:
             all_jobs = self.scheduler.get_jobs()
-            print("Scheduled Jobs")
+            logging.info("Scheduled Jobs")
             for job in all_jobs:
-                print(f"JOB ID: {job.id} | TRIGGER: {job.trigger} | NEXT_RUN: {job.next_run_time} | FUNCTION: {job.func} | ARGS: {job.args}")
+                logging.info(f"JOB ID: {job.id} | TRIGGER: {job.trigger} | NEXT_RUN: {job.next_run_time} | FUNCTION: {job.func} | ARGS: {job.args}")
         except Exception as e:
             logging.error(f"Could not print all scheduled jobs, {e}", exc_info=True)
 
@@ -1291,8 +1291,8 @@ class System:
         Prints out the scheduler dictionary 
         """
         try:
-            print("Scheduler Dictionary")
-            print(json.dumps(self.scheduler_dict, indent=4, default=str))
+            logging.info("Scheduler Dictionary")
+            logging.info(json.dumps(self.scheduler_dict, indent=4, default=str))
         except Exception as e:
             logging.error(f"Could not print the scheduler dictionary, {e}", exc_info=True)
 
@@ -1302,8 +1302,8 @@ class System:
         Prints out the scheduler dictionary 
         """
         try:
-            print("On Message Routing Dictionary")
-            print(json.dumps(self.on_message_routing_dict, indent=4, default=str))
+            logging.info("On Message Routing Dictionary")
+            logging.info(json.dumps(self.on_message_routing_dict, indent=4, default=str))
         except Exception as e:
             logging.error(f"Could not print the on_message routing dictionary, {e}", exc_info=True)
 
