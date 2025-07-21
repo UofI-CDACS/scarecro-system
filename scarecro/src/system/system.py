@@ -178,10 +178,11 @@ class System:
         Event exception listener 
         """
         if event.exception:
-            print(event.exception)
-            print(event.traceback)
-            print(event.job_id)
-            print(event)
+            logging.error("Event Exception:")
+            logging.error(event.exception)
+            logging.error(event.traceback)
+            logging.error(event.job_id)
+            logging.error(event)
             sys.stdout.flush()
 
     def create_scheduler(self):
