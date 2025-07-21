@@ -71,6 +71,11 @@ def convert_string_to_datetime(time_string):
     the_time = datetime.strptime(time_string, "%Y-%m-%dT%H:%M:%S.%f")
     return the_time 
 
+def convert_datetime_to_string(the_time):
+    time_string = the_time.strftime("%Y-%m-%dT%H:%M:%S.%f") 
+    return time_string
+
+
 
 # #Might want to override the time field there. 
 # def envelope_message(msg_id, time, message_type, message):

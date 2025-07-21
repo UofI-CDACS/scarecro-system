@@ -45,8 +45,8 @@ class Mongodb():
         logging.info("Initialized MongoDB Carrier")
         #MARKED
         print("ADDRESSES")
-        print(self.send_addresses)
-        print(self.receive_addresses)
+        print(json.dumps(self.send_addresses, indent=4))
+        print(json.dumps(self.receive_addresses, indent=4))
 
     def map_collections(self):
         """
@@ -219,7 +219,9 @@ class Mongodb():
                 logging.info(f'No entries for this time frame for collection {collection_name}')
             else:
                 #Add the recovery value to a new source field
+                #And convert the time to string 
                 for item in return_list:
+                    item[time_field] = util.convert_datetime_to_string(item[time_field])
                     item["source"] = "recovery"
         except Exception as e:
             self.reconnect()
