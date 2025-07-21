@@ -43,6 +43,10 @@ class Mongodb():
         if self.persistent_connection:
             self.connect()
         logging.info("Initialized MongoDB Carrier")
+        #MARKED
+        print("ADDRESSES")
+        print(self.send_addresses)
+        print(self.receive_addresses)
 
     def map_collections(self):
         """
@@ -209,7 +213,8 @@ class Mongodb():
         try:
             return_list = list(collection.find(query, {"_id": False}).sort(time_field, 1))
             if return_list == []:
-                logging.debug(f'No entries for this time frame for collection {collection_name}')
+                #MARKED? 
+                logging.info(f'No entries for this time frame for collection {collection_name}')
             else:
                 #Add the recovery value to a new source field
                 for item in return_list:
