@@ -203,6 +203,9 @@ class Mongodb():
         return_list = []
         query = {}
         query[time_field] = {"$gte": min_time, "$lte": max_time}
+        #MARKED
+        print("Query")
+        print(query)
         try:
             return_list = list(collection.find(query, {"_id": False}).sort(time_field, 1))
             if return_list == []:
