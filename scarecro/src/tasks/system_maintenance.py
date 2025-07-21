@@ -43,12 +43,12 @@ class SystemMaintenance:
             self.system_times_without_connection += 1
         else:
             self.system_times_without_connection = 0
-        logging.debug(f"System times without connection {self.system_times_without_connection}")
+        logging.info(f"System times without connection {self.system_times_without_connection}")
         if self.system_times_without_connection >= self.lost_connection_patience:
             #Send Email Alert message 
             try:
-                alert_message = f'Lost connection reboot {time.strftime("%Y-%m-%d %H:%M:%S")}'
                 if self.reboot_alerted == False:
+                    alert_message = f'Lost connection reboot {time.strftime("%Y-%m-%d %H:%M:%S")}'
                     self.alert(alert_message)
                     self.reboot_alerted = True
                 #Reboot 

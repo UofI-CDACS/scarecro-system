@@ -66,7 +66,7 @@ class DataRecovery:
         Function takes the dictionary to write back into the 
         connection file, and writes it to the connection file 
         """
-        logging.debug(f"Writing disconnect to {self.connection_filename}")
+        logging.info(f"Writing disconnect to {self.connection_filename}")
         with open(self.connection_filename, 'w') as opened_file:
             json.dump(write_dict, opened_file, indent=4)
 
@@ -98,7 +98,7 @@ class DataRecovery:
             status = connection_info.get("status")
             
             if status != "disconnect":
-                logging.debug(f"Writing disconnect to {self.connection_filename}")
+                logging.info(f"Writing disconnect to {self.connection_filename}")
                 self.write_to_connection_file(connection_dict)
         except Exception as e:
             logging.error(f"Issue opening connection file on disconnect {e}", exc_info=True)
@@ -125,6 +125,8 @@ class DataRecovery:
                 enveloped_message = system_object.system.envelope_message_by_type(recovery_data_request_message, message_type)
                 system_object.system.post_messages_by_type(enveloped_message, message_type)
                 logging.info(f"Posted request for recovery data {lost_connection_time} - {restored_connection_time}")
+            else:
+                logging.error(f"One or more invalid times: lost connection {lost_connection_time} restored connection: {restored_connection_time}")
         except Exception as e:
             logging.error(f"Could not post request for recovery data; {e}", exc_info=True)
 

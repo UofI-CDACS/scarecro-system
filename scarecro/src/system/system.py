@@ -179,8 +179,8 @@ class System:
         """
         if event.exception:
             logging.error("Event Exception:")
-            logging.error(event.exception)
-            logging.error(event.traceback)
+            logging.debug(event.exception)
+            logging.debug(event.traceback)
             logging.error(event.job_id)
             logging.error(event)
             sys.stdout.flush()
