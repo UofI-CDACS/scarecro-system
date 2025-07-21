@@ -36,9 +36,9 @@ class SystemMaintenance:
         Checks the system connection status. 
         If the system has lost connection mode 
         """ 
-        logging.debug("Checking system connection status")
+        logging.info("Checking system connection status")
         system_lost_connection_status = system_object.system.return_system_lost_connection()
-        logging.debug(f"System lost connection status {system_lost_connection_status}")
+        logging.info(f"System lost connection status {system_lost_connection_status}")
         if system_lost_connection_status == True:
             self.system_times_without_connection += 1
         else:
@@ -70,10 +70,11 @@ class SystemMaintenance:
         time.sleep(30)
         #Reboot command 
         os.system("sudo shutdown -r")
+        logging.info("Sent shutdown command")
 
     def alert(self, message):
         #MARKED - need to incorporate
-        logging.debug(f"Alert message {message}")
+        logging.info(f"Alert message {message}")
         try:
             f = open("generated_data/alerts.txt", 'a+')
             f.write(message+'\n')
