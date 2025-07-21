@@ -66,7 +66,7 @@ class DataRecovery:
         Function takes the dictionary to write back into the 
         connection file, and writes it to the connection file 
         """
-        logging.info(f"Writing disconnect to {self.connection_filename}")
+        logging.info(f"Writing connection to {self.connection_filename}")
         with open(self.connection_filename, 'w') as opened_file:
             json.dump(write_dict, opened_file, indent=4)
 

@@ -251,10 +251,17 @@ class Mongodb():
         NOTE: This function is a little bit ugly and could possibly
         be improved in the future 
         """
-        logging.info("Request for Recovery Data: In MongoDb")
+        logging.info("Request for Recovery Data: In MongoDB Carrier")
+        #MARKED
+        print("Message Type")
+        print(message_type)
         try:
             recovery_data = {} 
             messages = system_object.system.pickup_messages_by_message_type(message_type=message_type, entry_ids=entry_ids)
+            #MARKED - going away 
+            print("Messages")
+            print(messages)
+            
             for single_message in messages:
                 #For each message, get the lost and restored connection time
                 msg_content = single_message.get("msg_content", {})
@@ -262,14 +269,21 @@ class Mongodb():
                 restored_connection_time = msg_content.get("restored_connection_time", False)
                 #Get the data from the database 
                 all_collections = list(self.collection_address_mapping.keys())
+                #MARKED
+                print("Collections")
+                print(all_collections)
+                print("Lost Connection Time")
+                print(lost_connection_time)
+                print("Restored Connection Time")
+                print(restored_connection_time)
                 for single_collection in all_collections:
                     try:
                         #Get the recovery data 
-                        message_type = self.collection_message_mapping[single_collection]
-                        entries = self.get_all_records_in_time_range(lost_connection_time, restored_connection_time, message_type, single_collection)
+                        new_message_type = self.collection_message_mapping[single_collection]
+                        entries = self.get_all_records_in_time_range(lost_connection_time, restored_connection_time, new_message_type, single_collection)
                         #If the recovery data ain't empty, add it 
                         if entries != []:
-                            recovery_data[message_type] = entries
+                            recovery_data[new_message_type] = entries
                     except Exception as e:
                         logging.error(f"Could not get recovery entries for {single_collection}; {e}", exc_info=True)
                 #If we actually have some recovery data 
