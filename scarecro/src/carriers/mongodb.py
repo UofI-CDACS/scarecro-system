@@ -203,10 +203,12 @@ class Mongodb():
         message_config = self.message_configs.get(message_type, {})
         time_field = message_config.get("time_field", "time")
         collection = self.get_collection(collection_name)
+        converted_min_time = util.convert_string_to_datetime(min_time)
+        converted_max_time = util.convert_string_to_datetime(max_time)
         #Pull the bulk data 
         return_list = []
         query = {}
-        query[time_field] = {"$gte": min_time, "$lte": max_time}
+        query[time_field] = {"$gte": converted_min_time, "$lte": converted_max_time}
         #MARKED
         print("Query")
         print(query)
