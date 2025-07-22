@@ -123,12 +123,17 @@ class S3_Bucket():
         messages = system_object.system.pickup_messages_by_message_type(message_type=message_type, entry_ids=entry_ids)
         for message in messages: 
             #Get the content 
+            #MARKED
+            logging.info(f"Message {message}")
             msg = message.get("msg_content", {})
             firmware_image_name = msg.get("file_name", None)
             cloud_path = msg.get("cloud_path", None)
             disk_path = msg.get("disk_path", f"{self.base_path}firmware_images/{firmware_image_name}.bin")
             config_path = msg.get("config_path", f"{self.base_path}latest_firmware.json")
             confirm_receipt = msg.get("confirm_receipt", True)
+            logging.info(f"Cloud path {cloud_path}")
+            logging.info(f"Disk path {disk_path}")
+            logging.info(f"Config path {config_path}")
             #Download the file from the cloud path 
             if cloud_path:
                 try:
