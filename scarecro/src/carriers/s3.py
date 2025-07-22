@@ -89,6 +89,7 @@ class S3_Bucket():
                 "time": util.get_today_date_time_utc()
             }
             enveloped_message = system_object.system.envelope_message_by_type(message, message_type)
+            logging.info("S3 Posting Confirm Receipt Message")
             system_object.system.post_messages_by_type(enveloped_message, message_type)
         except Exception as e:
             logging.error(f"Could not post confirm receipt message {e}", exc_info=True)
@@ -118,6 +119,7 @@ class S3_Bucket():
         Get a new firmware message passed in by the 
         on_message trigger, and take action based on it. 
         """ 
+        logging.info("Processing New Firmware Image Message")
         messages = system_object.system.pickup_messages_by_message_type(message_type=message_type, entry_ids=entry_ids)
         for message in messages: 
             #Get the content 
@@ -152,6 +154,7 @@ class S3_Bucket():
                 os.makedirs(directory_path, exist_ok=True)
             except Exception as e:
                 logging.error(f"Could not make directory path from {disk_path}, {e}", exc_info=True)
+            logging.info("Downloading new S3 file")
             response = self.s3_client.download_file(self.bucket_name, cloud_path, disk_path)
         except Exception as e:
             logging.error(f"Could not download S3 {cloud_path} to {disk_path} for reason {e}")
@@ -227,8 +230,8 @@ class S3_Bucket():
                             sub_path = self.address_sub_path_mapping.get(address_name, "")
                             final_path = self.make_path_name(sub_path)
                             cloud_path = f"{final_path}{file_name}"
-                        logging.debug(f"Image upload disk path {disk_path}")
-                        logging.debug(f"Image upload cloud path {cloud_path}")
+                        logging.info(f"Image upload disk path {disk_path}")
+                        logging.info(f"Image upload cloud path {cloud_path}")
                         self.upload_file(cloud_path, disk_path)
                 #Record sent entries 
                 if new_entry_ids != []:
