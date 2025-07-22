@@ -166,14 +166,21 @@ class MQTT_Client():
         On the connection, subscribe to all relevant subscriptions already identified 
         for the client 
         """
+        logging.info(f"Connecting up MQTT Client")
         if reasonCode==0:
             if userdata == None:
-                userdata = []
-            if isinstance(userdata, list):
-                for topic in userdata:
+                userdata = {}
+            if isinstance(userdata, dict):
+                sub_list = userdata.get("subscriptions", [])
+                status_list = userdata.get("curr_status", [0]*len(sub_list))
+                for i in range(0, len(sub_list)):
+                    topic = sub_list[i]
                     logging.info(f'{topic} connected, return code: {reasonCode}')
                     #Need to revisit qos?
-                    self.client.subscribe(topic, qos=self.qos)
+                    #If not already subscribed - subscribe
+                    if status_list[i] == 0:
+                        self.client.subscribe(topic, qos=self.qos)
+                        status_list[i] = 1
         else:
             logging.error(f'{self.client_id} bad Connection, return code: {reasonCode}') 
 
@@ -349,17 +356,24 @@ class MQTT_Client():
         try:
             current_user_data = self.client.user_data_get()
         except Exception as e:
-            current_user_data = []
-        if not isinstance(current_user_data, list):
-            current_user_data = []
+            current_user_data = {}
+        if not isinstance(current_user_data, dict):
+            current_user_data = {}
         subscriptions = self.get_subscriptions(address_names)
-        for subscription in subscriptions:
+        curr_subs = current_user_data.get("subscriptions", [])
+        curr_subs_status = current_user_data.get("curr_status", [])
+        for i in range(0, len(subscriptions)):
+            subscription = subscriptions[i]
             #Add the subscription topic to the userdata 
-            if subscription not in current_user_data:
-                current_user_data.append(subscription)
+            if subscription not in curr_subs:
+                curr_subs.append(subscription)
+                curr_subs_status.append(0)
             #Add the callbacks for the subscriptions
             self.client.message_callback_add(subscription, self.receive_message)
         #Set the userdata 
+        current_user_data = {}
+        current_user_data["subscriptions"] = curr_subs
+        current_user_data["curr_status"] = curr_subs_status
         self.client.user_data_set(current_user_data)
         #Check the duration, then connect and run or connect and run forever
         #Connect 
