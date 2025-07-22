@@ -227,7 +227,8 @@ class BLE():
                         await client.start_notify(read_uuid, self.write_read_callback)
                         #Try this when next working on it 
                         response_back = await client.write_gatt_char(write_uuid, data_to_write)
-                        #logging.debug(f"Response: {response_back}")
+                        #MARKED - may take this out later 
+                        logging.debug(f"Response: {response_back}")
                         await asyncio.sleep(5.0)
                         await client.stop_notify(read_uuid)
                         return True
