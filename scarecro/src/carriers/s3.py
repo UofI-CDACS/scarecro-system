@@ -124,7 +124,6 @@ class S3_Bucket():
         for message in messages: 
             #Get the content 
             #MARKED
-            logging.info(f"Message {message}")
             msg = message.get("msg_content", {})
             firmware_image_name = msg.get("file_name", None)
             cloud_path = msg.get("cloud_path", None)
