@@ -198,19 +198,30 @@ class BLE():
                 system_object.system.post_messages(enveloped_message, self.working_address)
             except Exception as e:
                 logging.debug(f"Could not post BLE Write Read message for reason {e}", exc_info=True)
- 
+    
+    def restart_bluetooth(self):
+        """
+        Function takes no arguments and uses the system's CLI to 
+        try and restart the bluetooth
+        """
+        logging.info("Attempting to restart bluetooth.")
+        os.system("rfkill block bluetooth")
+        os.system("rfkill unblock bluetooth")
 
     async def query_function(self, mac_address, read_uuid, write_uuid, data_to_write):
         """
         Asynchronous function to run to write the appropriate 
         information and get the response in the callback 
         """
+        restart_flag = 0
         try:
             #Attempting to follow advice here: https://github.com/hbldh/bleak/issues/666 
             retries = 5
-            for attempt in range(0, retries):
+            attempt = 0 
+            for i in range(0, retries):
                 try:
                     logging.info(f"BLE connection attempt: {attempt}")
+                    attempt += 1
                     async with BleakClient(mac_address) as client:
                         logging.debug("Connected")
                         await client.start_notify(read_uuid, self.write_read_callback)
@@ -226,11 +237,13 @@ class BLE():
         except Exception as e:
             logging.error(f"Issue with Bleak Write Read: {e}")
             try:
-                logging.info("Attempting to restart bluetooth.")
-                os.system("rfkill block bluetooth")
-                os.system("rfkill unblock bluetooth")
+                self.restart_bluetooth()
+                restart_flag = 1
             except Exception as e:
                 logging.error(f"Could not bring BT up and down with rfkill: {e}")
+        if attempt >= 4 and restart_flag == 0:
+            self.restart_bluetooth()
+            restart_flag = 1
 
     def get_readings_from_write_read(self, address_names):
         """

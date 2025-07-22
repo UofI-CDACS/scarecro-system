@@ -309,7 +309,6 @@ class MQTT_Client():
                     if self.alerted_lost_connection == True:
                         self.alerted_lost_connection = False
                     self.post_restored_connection_message()
-                    
         except Exception as e:
             logging.error("Could not check system mqtt connection status")
             
