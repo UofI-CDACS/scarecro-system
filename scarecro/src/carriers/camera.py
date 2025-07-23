@@ -125,6 +125,7 @@ class Camera():
         picam2 on import. Probably should just be configued in 
         the future 
         """
+        ret = True
         new_dict = {}
         logging.info("Taking picamera picture(s)")
         #Get the save path 
@@ -155,18 +156,20 @@ class Camera():
             new_dict["image_resolution"] = resolution
         except Exception as e:
             logging.error("Could not take picamera image", exc_info=True)
+            ret = False
         finally:
             try:
                 camera.close()
             except Exception as e:
                 logging.error("picamera close failed", exc_info=True)
-        return new_dict
+        return new_dict, ret
 
     def take_pi_hawk_eye_picture(self, address_name):
         """
         Takes a pi_hawk_eye picture and generates a reading
         with the image information 
         """
+        ret = True
         new_dict = {}
         logging.info("Taking pi_hawk_eye picture(s)")
         #Get the save path 
@@ -185,7 +188,8 @@ class Camera():
             os.system(command)
         except Exception as e:
             logging.error("Could not take pi_hawk_eye image", exc_info=True)
-        return new_dict
+            ret = False
+        return new_dict, ret 
 
 
     def take_libcamera_picture(self, address_name):
@@ -193,6 +197,7 @@ class Camera():
         Takes a libcamera picture and generates a reading
         with the image information 
         """
+        ret = True
         new_dict = {}
         logging.info("Taking libcamera picture(s)")
         #Get the save path 
@@ -212,7 +217,8 @@ class Camera():
             os.system(command)
         except Exception as e:
             logging.error("Could not take libcamera image", exc_info=True)
-        return new_dict
+            ret = False 
+        return new_dict, ret 
 
     #Need to add a cleaning picture task 
     def disconnect(self): 
@@ -233,12 +239,12 @@ class Camera():
                 camera_type = self.mapping_dict["camera_type"]["address_name"][address_name]
                 reading = {}
                 if camera_type == "picamera":
-                    reading = self.take_picam_picture(address_name)
+                    reading, ret = self.take_picam_picture(address_name)
                 elif camera_type == "pi_hawk_eye":
-                    reading = self.take_pi_hawk_eye_picture(address_name)
+                    reading, ret = self.take_pi_hawk_eye_picture(address_name)
                 elif camera_type == "libcamera":
-                    reading = self.take_libcamera_picture(address_name)
-                if reading:
+                    reading, ret = self.take_libcamera_picture(address_name)
+                if reading and ret:
                     reading = self.add_id_to_reading(reading, address_name)
                     logging.info(f"Took picture! Reading {reading}")
                     enveloped_message = system_object.system.envelope_message(reading, address_name)
