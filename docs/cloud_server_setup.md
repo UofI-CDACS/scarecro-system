@@ -102,8 +102,8 @@ Remember to change **ubuntu** or **pi** to your own username.
 2. Make sure the user you are running the script under owns the user. You can always run:
 
 ```bash
-sudo chown -R  <username> ./scarecro/
-chmod -R +rwx ./scarecro/
+sudo chown -R  <username> ./scarecro-system/
+chmod -R +rwx ./scarecro-system/
 ```
 
 Remember, change "username" to your own username in the command above. 
