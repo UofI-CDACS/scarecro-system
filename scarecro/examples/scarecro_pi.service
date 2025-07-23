@@ -1,0 +1,12 @@
+[Unit]
+Description=Scarecro Device Script
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/scarecro-system/scarecro
+ExecStart=/usr/bin/python3 /home/pi/scarecro/scarecro-system/scarecro/scarecro.py
+User=pi
+
+[Install]
+WantedBy=multi-user.target
