@@ -109,7 +109,7 @@ chmod -R +rwx ./scarecro/
 Remember, change "username" to your own username in the command above. 
 
 
-3. Then run: 
+3. Then copy over the service file you want to use (located in scarecro-system/scarecro/examples/): 
 
 **ubuntu**: 
 

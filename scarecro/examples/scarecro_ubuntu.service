@@ -5,7 +5,7 @@ After=multi-user.target
 [Service]
 Type=simple
 WorkingDirectory=/home/ubuntu/scarecro-system/scarecro
-ExecStart=/usr/bin/python3 /home/ubuntu/scarecro/scarecro-system/scarecro/scarecro.py
+ExecStart=/usr/bin/python3 /home/ubuntu/scarecro-system/scarecro/scarecro.py
 User=ubuntu
 
 [Install]
