@@ -136,7 +136,7 @@ class Radio_433():
                     address_name = self.matches_address_mapping.get(potential_match, None)
                     if address_name:
                         reading_dict = sLine
-                        logging.info(f"Recevied 433 MHz Message on {address_name}")
+                        #logging.info(f"Recevied 433 MHz Message on {address_name}")
                         enveloped_message = system_object.system.envelope_message(json.loads(sLine), address_name)
                         system_object.system.post_messages(enveloped_message, address_name)
                     break 
