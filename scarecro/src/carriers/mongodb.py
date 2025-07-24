@@ -531,7 +531,7 @@ class Mongodb():
             #If we indeed have new messages, send 'em 
             if content_send_list != []:
                 #MARKED - will go away
-                print(content_send_list)
+                #print(content_send_list)
                 succ = self.insert_records(content_send_list, collection_name)
                 logging.info(f"Mongo: Inserted records for {address_name} into database")
                 if not succ:

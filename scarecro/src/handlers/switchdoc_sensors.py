@@ -54,6 +54,8 @@ class SwitchdocSensors:
         data_dict['device'] = raw_var['device']
         #get the ID next 
         data_dict["id"] = raw_var["id"]
+        #MARKED -MAY WANT TO CHANGE
+        data_dict["label"] = raw_var["id"]
         #battery field:
         data_dict['batterylow'] = raw_var['batterylow']
         #average wind speed
