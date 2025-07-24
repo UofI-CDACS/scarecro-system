@@ -117,7 +117,7 @@ class MQTT_Client():
                 #If the last send time was too soon - don't post it 
                 #Envelope the message
                 enveloped_message = system_object.system.envelope_message(message_body, address_name)
-                msg_id = envelope_message.get("msg_id", "default")
+                msg_id = enveloped_message.get("msg_id", "default")
                 curr_time = util.get_today_date_time_utc()
                 id_time_dict = self.address_time_dict.get(address_name, {})
                 last_time = id_time_dict.get(msg_id, None)
