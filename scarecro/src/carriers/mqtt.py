@@ -125,7 +125,7 @@ class MQTT_Client():
                 if last_time == None or util.compare_seconds(last_time, curr_time) > self.flood_seconds_tolerance:
                     #Envelope and post it
                     system_object.system.post_messages(enveloped_message, address_name)
-                if id_time_dict == None:
+                if id_time_dict == {}:
                     new_dict = {
                         msg_id: curr_time
                     }
