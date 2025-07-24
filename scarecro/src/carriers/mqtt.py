@@ -115,14 +115,23 @@ class MQTT_Client():
             if address_name:
                 #This is where we want to check for flooding
                 #If the last send time was too soon - don't post it 
+                #Envelope the message
+                enveloped_message = system_object.system.envelope_message(message_body, address_name)
+                msg_id = envelope_message.get("msg_id", "default")
                 curr_time = util.get_today_date_time_utc()
-                last_time = self.address_time_dict.get(address_name, None)
+                id_time_dict = self.address_time_dict.get(address_name, {})
+                last_time = id_time_dict.get(msg_id, None)
                 #Flood seconds tolerance is in configuration to prevent flooding 
                 if last_time == None or util.compare_seconds(last_time, curr_time) > self.flood_seconds_tolerance:
                     #Envelope and post it
-                    enveloped_message = system_object.system.envelope_message(message_body, address_name)
                     system_object.system.post_messages(enveloped_message, address_name)
-                self.address_time_dict[address_name] = curr_time
+                if id_time_dict == None:
+                    new_dict = {
+                        msg_id: curr_time
+                    }
+                    self.address_time_dict[address_name] = new_dict
+                else:
+                    self.address_time_dict[address_name][msg_id] = curr_time
         except Exception as e:
             logging.error(f"Could not receive message {message}; {e}", exc_info=True)
 
