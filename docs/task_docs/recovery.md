@@ -12,7 +12,7 @@ This system works by sending several types of messages. These are:
 * recovery_data_request
 * recovery_data
 
-## connection message 
+## connection_status message 
 Should look like: 
 
     {
@@ -35,7 +35,8 @@ Should look like:
 Should look like:
 
     {
-        "id": system_id
+        "id": system_id,
+        "time": time of send, 
         "entity": (optional) - entity that recovered data
         "lost_connection_time": time connection was lost
         "restored_connection_time": time connection was restored
