@@ -148,10 +148,18 @@ class Camera():
             # Camera warm-up time
             time.sleep(2)
             picture_name, new_dict = self.generate_picture_name_and_reading(save_path, "picamera")
-            try:
-                camera.capture(picture_name)
-            except Exception as e:
-                camera.start_and_capture_file(new_dict.get("disk_path", ""))
+            the_disk_path = new_dict.get('disk_path', '')
+            if the_disk_path != "":
+                try:
+                    camera.capture(picture_name)
+                except Exception as e:
+                    camera.start_and_capture_file(the_disk_path)
+                if not os.path.exists(f"{the_disk_path}"):
+                    ret = False 
+                    logging.error("Output image not found: Issue with camera")
+            else:
+                ret = False
+                logging.info("Potential error in camera disk path")
             #Generate the reading 
             new_dict["image_resolution"] = resolution
         except Exception as e:
@@ -184,8 +192,18 @@ class Camera():
             picture_name, new_dict = self.generate_picture_name_and_reading(save_path, "pi_hawk_eye")
             #Generate the reading 
             new_dict["image_resolution"] = [4626, 3472]
-            command = f"libcamera-still -t 5000 –autofocus –width 4626 –height 3472 -o {new_dict.get('disk_path', '')}"
-            os.system(command)
+            the_disk_path = new_dict.get('disk_path', '')
+            if the_disk_path != "":
+                command = f"libcamera-still -t 5000 –autofocus –width 4626 –height 3472 -o {the_disk_path}"
+                os.system(command)
+                #If the file was not created here
+                if not os.path.exists(f"{the_disk_path}"):
+                    ret = False 
+                    logging.error("Output image not found: Issue with camera")
+            else:
+                ret = False
+                logging.info("Potential error in camera disk path")
+            
         except Exception as e:
             logging.error("Could not take pi_hawk_eye image", exc_info=True)
             ret = False
@@ -213,8 +231,18 @@ class Camera():
             #Generate the reading
             resolution = [1920, 1080] 
             new_dict["image_resolution"] = resolution
-            command = f"libcamera-still –autofocus –width {resolution[0]} –height {resolution[1]} -o {new_dict.get('disk_path', '')} --immediate"
-            os.system(command)
+            the_disk_path = new_dict.get('disk_path', '')
+            if the_disk_path != "":
+                command = f"libcamera-still –autofocus –width {resolution[0]} –height {resolution[1]} -o {the_disk_path} --immediate"
+                os.system(command)
+                #If the file was not created here
+                if not os.path.exists(f"{the_disk_path}"):
+                    ret = False 
+                    logging.error("Output image not found: Issue with camera")
+            else:
+                ret = False
+                logging.info("Potential error in camera disk path")
+            
         except Exception as e:
             logging.error("Could not take libcamera image", exc_info=True)
             ret = False 
