@@ -1,0 +1,9 @@
+{
+    "instance_id": "example_bmp280",
+    "display_name": "Example BMP280 Hat",
+    "message_type": "bmp280",
+    "description": "The BMP280 sensor example",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude_orthometric": 0.0
+}

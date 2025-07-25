@@ -1,0 +1,150 @@
+{
+    "message_id": "renogy_solar_charger",
+    "display_name": "Renogy Solar Charger",
+    "instance_database": "renogy_solar_charger_instances",
+    "message_database": "renogy_solar_charger",
+    "id_field": "deviceid",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "message_rate": 300,
+    "map_icon": "SensorsIcon",
+    "inheritance": ["default_sensor"],
+    "description": "The Renogy Solar Charger is a solar charge controller for the gateways",
+    "fields": [
+        {
+            "field_name": "deviceid",
+            "display_name": "ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of sensor"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "gateway_id",
+            "display_name": "Gateway ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of reporting gateway"
+        },
+        {
+            "field_name": "source",
+            "display_name": "Source",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "direct or recovery"
+        },
+        {
+            "field_name": "battery_percentage",
+            "display_name": "Battery",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "percent"
+        },
+        {
+            "field_name": "battery_voltage",
+            "display_name": "Battery Voltage",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "V"
+        },
+        {
+            "field_name": "controller_temperature",
+            "display_name": "Controller Temperature",
+            "data_type": "number",
+            "kind": "reported",
+            "units_metric": "\u00b0C",
+            "units_imperial": "\u00b0F"
+        },
+        {
+            "field_name": "battery_temperature",
+            "display_name": "Battery Temperature",
+            "data_type": "number",
+            "kind": "reported",
+            "units_metric": "\u00b0C",
+            "units_imperial": "\u00b0F"
+        },
+        {
+            "field_name": "load_voltage",
+            "display_name": "Load Voltage",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "V"
+        },
+        {
+            "field_name": "load_current",
+            "display_name": "Load Current",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mA"
+        },
+        {
+            "field_name": "load_power",
+            "display_name": "Load Power",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "pv_power",
+            "display_name": "Photovoltaic Power",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "max_charging_power_today",
+            "display_name": "Daily Max Charging Power",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "max_discharging_power_today",
+            "display_name": "Daily Max Discharging Power",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "charging_amp_hours_today",
+            "display_name": "Daily Charging Amp-Hours",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "A-h"
+        },
+        {
+            "field_name": "discharging_amp_hours_today",
+            "display_name": "Daily Discharging Amp-Hours",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "A-h"
+        },
+        {
+            "field_name": "power_generation_today",
+            "display_name": "Daily Power Generation",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "power_generation_total",
+            "display_name": "Total Power Generation",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "charging_status",
+            "display_name": "Charging Status",
+            "data_type": "string",
+            "kind": "reported"
+        }
+
+    ]
+}
+
+
+
+
+

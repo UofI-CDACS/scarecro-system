@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "title": "tag",
+    "properties": {
+        "tag_id": {
+            "type": "string",
+            "description": "unique identifier for a given tag"
+        },
+        "display_name":{
+            "type": "string",
+            "description": "display name of the tag"
+        },
+        "description":{
+            "type": "string",
+            "description": "description of the tag"
+        }
+    },
+    "required": ["tag_id"]
+}

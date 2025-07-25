@@ -1,0 +1,10 @@
+{
+    "instance_id": "AWR1",
+    "display_name": "AWR1",
+    "message_type": "weather_rack",
+    "description": "The Example Weather Rack",
+    "mapped_id": 255,
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude_orthometric": 0
+}

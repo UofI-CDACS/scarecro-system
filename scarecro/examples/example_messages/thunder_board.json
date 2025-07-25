@@ -1,0 +1,181 @@
+{
+    "message_id": "thunder_board",
+    "display_name": "Thunderboard",
+    "instance_database": "thunder_board_instances",
+    "message_database": "thunder_board",
+    "id_field": "deviceid",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "message_rate": 300,
+    "map_icon": "SensorsIcon",
+    "description": "The Thunderboard measures lighting strikes",
+    "fields": [
+        {
+            "field_name": "deviceid",
+            "display_name": "ID",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "id of sensor"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "gateway_id",
+            "display_name": "Gateway ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of reporting gateway"
+        },
+        {
+            "field_name": "source",
+            "display_name": "Source",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "direct or recovery"
+        },
+        {
+            "field_name": "protocolversion",
+            "display_name": "Protocol Version",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "softwareversion",
+            "display_name": "Software Version",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "weathersenseprotocol",
+            "display_name": "WeatherSense Protocol",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "irqsource",
+            "display_name": "Interrupt Request Source",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "previousinterruptresult",
+            "display_name": "Previous Interrupt Result",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "lightninglastdistance",
+            "display_name": "Distance of Last Lightning",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "sparebyte",
+            "display_name": "Spare Byte",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "lightningcount",
+            "display_name": "Lightning Count",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "interruptcount",
+            "display_name": "Interrupt Count",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "batteryvoltage",
+            "display_name": "Battery Voltage",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "V"
+        },
+        {
+            "field_name": "batterycurrent",
+            "display_name": "Battery Current",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mA"
+        },
+        {
+            "field_name": "loadvoltage",
+            "display_name": "Load Voltage",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "V"
+        },
+        {
+            "field_name": "loadcurrent",
+            "display_name": "Load Current",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mA"
+        },
+        {
+            "field_name": "solarvoltage",
+            "display_name": "Solar Voltage",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "V"
+        },
+        {
+            "field_name": "solarcurrent",
+            "display_name": "Solar Current",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mA"
+        },
+        {
+            "field_name": "auxa",
+            "display_name": "(auxa)",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "batterycharge",
+            "display_name": "Battery Charge",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "messageID",
+            "display_name": "Message ID",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "batterypower",
+            "display_name": "Battery Power",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "loadpower",
+            "display_name": "Load Power",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "solarpower",
+            "display_name": "Solar Power",
+            "data_type": "number",
+            "kind": "reported"
+        }
+
+    ]
+}
+
+
+
+
+

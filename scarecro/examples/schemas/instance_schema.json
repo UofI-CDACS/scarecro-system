@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "title": "instance",
+    "properties": {
+        "instance_id": {
+            "type": ["string","number"],
+            "description": "Unique id of the instance"
+        },
+        "display_name":{
+            "type": "string",
+            "description": "display name of the instance"
+        },
+        "message_type":{
+            "type": "string",
+            "description": "associated message type of the instance - should map to a message id"
+        },
+        "latitude":{
+            "type": "number",
+            "description": "Latitude coordinate of the instance"
+        },
+        "longitude":{
+            "type": "number",
+            "description": "Longitude coordinate of the instance"
+        },
+        "altitude_orthometric":{
+            "type": "number",
+            "description": "Orthometric altitude of the instance"
+        },
+        "tags":{
+            "type": "array",
+            "items": {"type": "string"}
+        },
+        "description": {
+            "type": "string",
+            "description": "Optional description of the instance"
+        }
+    },
+    "required": ["instance_id"]
+}

@@ -1,0 +1,9 @@
+{
+    "instance_id": "your_renogy_mac_address",
+    "display_name": "Example Renogy Solar Charger",
+    "message_type": "renogy_solar_charer",
+    "description": "The Example Renogy Solar Charger",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude_orthometric": 0.0
+}

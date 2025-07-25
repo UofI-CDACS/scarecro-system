@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "title": "message",
+    "properties": {
+        "message_id": {
+            "type": "string",
+            "description": "Unique id of the message type - often the message name"
+        },
+        "display_name":{
+            "type": "string",
+            "description": "display name of the message"
+        },
+        "instance_database":{
+            "type": "string",
+            "description": "Instance collection or table storage location for this message type"
+        },
+        "message_database":{
+            "type": "string",
+            "description": "Messages collection or table storage location for this message type"
+        },
+        "id_field":{
+            "type": "string",
+            "description": "field name that stores the unique identifier for the message reporter instance"
+        },
+        "time_field":{
+            "type": "string",
+            "description": "field name that stores the timestamp for the message, if it exists"
+        },
+        "timestamp_field_format":{
+            "type": "string",
+            "description": "format of the message timestamp"
+        },
+        "timezone":{
+            "type": "string",
+            "description": "message timezone, if known"
+        },
+        "message_rate":{
+            "type": "number",
+            "description": "approximate average reporting rate of message per instance, in seconds, if known"
+        },
+        "map_icon": {
+            "type": "string",
+            "description": "map icon for this message type"
+        },
+        "tags":{
+            "type": "array",
+            "items": {"type": "string"}
+        },
+        "inheritance":{
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "list of message IDs this message inherits from"
+        },
+        "description": {
+            "type": "string",
+            "description": "Optional description of the message type"
+        },
+        "fields": {
+            "type": "array",
+            "items": {"type": "object"},
+            "description": "list of field objects the message contains"
+        }
+    },
+    "required": ["message_id"]
+}

@@ -1,0 +1,71 @@
+{
+    "message_id": "gateway_stats",
+    "display_name": "Gateway Stats",
+    "instance_database": "gateway_stats_instances",
+    "message_database": "gateway_stats",
+    "id_field": "id",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "message_rate": 300,
+    "map_icon": "SensorsIcon",
+    "inheritance": ["default_sensor"],
+    "description": "System Reporting Data",
+    "fields": [
+        {
+            "field_name": "id",
+            "display_name": "ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of sensor"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "gateway_id",
+            "display_name": "Gateway ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of reporting gateway"
+        },
+        {
+            "field_name": "source",
+            "display_name": "Source",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "direct or recovery"
+        },
+        {
+            "field_name": "cpu_usage",
+            "display_name": "CPU Usage",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "percent"
+        },
+        {
+            "field_name": "internal_temp",
+            "display_name": "Internal Temperature",
+            "data_type": "number",
+            "kind": "reported",
+            "units_metric": "\u00b0C",
+            "units_imperial": "\u00b0F"
+        },
+        {
+            "field_name": "uptime",
+            "display_name": "Uptime",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "seconds"
+        }
+    ]
+}
+
+
+
+
+

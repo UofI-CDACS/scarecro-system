@@ -1,0 +1,54 @@
+{
+    "message_id": "remote_config_updated",
+    "display_name": "Remote Config Updated",
+    "message_database": "remote_config_updated",
+    "id_field": "id",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "inheritance": ["default_sensor"],
+    "description": "The message sent indicating a configuration in a remote store was updated",
+    "fields": [
+        {
+            "field_name": "id",
+            "display_name": "ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of sensor"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "config_folder",
+            "display_name": "Config Folder",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "Name of folder where configuration resides"
+        },
+        {
+            "field_name": "config_name",
+            "display_name": "Config Name",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "Name of configuration"
+        },
+        {
+            "field_name": "config_id",
+            "display_name": "Config ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "Configuration ID"
+        }
+        
+    ]
+}
+
+
+
+
+

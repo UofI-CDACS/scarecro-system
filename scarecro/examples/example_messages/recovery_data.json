@@ -1,0 +1,52 @@
+{
+    "message_id": "recovery_data",
+    "display_name": "Recovery Data",
+    "id_field": "id",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "inheritance": ["default_sensor"],
+    "description": "The message giving recovery data for a given time period",
+    "fields": [
+        {
+            "field_name": "id",
+            "display_name": "ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of sensor"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "lost_connection_time",
+            "display_name": "Lost Connection Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "Time of lost connection (UTC)"
+        },
+        {
+            "field_name": "restored_connection_time",
+            "display_name": "Restored Connection Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "Time of restored connection (UTC)"
+        },
+        {
+            "field_name": "recovery_data",
+            "display_name": "Recovery Data",
+            "data_type": "object",
+            "kind": "reported",
+            "description": "Dictionary of message_type keys list of entry values for recovery data"
+        }
+    ]
+}
+
+
+
+
+

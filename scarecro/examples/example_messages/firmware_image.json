@@ -1,0 +1,69 @@
+{
+    "message_id": "firmware_image",
+    "display_name": "Firmware Image",
+    "message_database": "firmware_image",
+    "id_field": "id",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "inheritance": ["default_sensor"],
+    "description": "The message sent indicating a new Data Gator firmware image is available to be downloaded",
+    "fields": [
+        {
+            "field_name": "id",
+            "display_name": "ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of sensor"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "file_name",
+            "display_name": "File Name",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "Name of file to download"
+        },
+        {
+            "field_name": "cloud_path",
+            "display_name": "Cloud Path",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "Location of the file in the cloud (including filename)"
+        },
+        {
+            "field_name": "disk_path",
+            "display_name": "Disk Path",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "To-be-placed location of the file on the disk (including filename)"
+        },
+        {
+            "field_name": "config_path",
+            "display_name": "Config Path",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "file to write the new firmware image name to, locally (includes filename)"
+        },
+        {
+            "field_name": "confirm_receipt",
+            "display_name": "Confirm Receipt",
+            "data_type": "boolean",
+            "kind": "reported",
+            "description": "True or False, whether or not the system should send back a confirm receipt message"
+        }
+        
+        
+    ]
+}
+
+
+
+
+

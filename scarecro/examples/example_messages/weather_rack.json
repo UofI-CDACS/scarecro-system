@@ -1,0 +1,196 @@
+{
+    "message_id": "weather_rack",
+    "display_name": "WeatherRack2",
+    "instance_database": "weather_rack_instances",
+    "message_database": "weather_rack",
+    "id_field": "label",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "message_rate": 300,
+    "map_icon": "WindPowerIcon",
+    "inheritance": ["default_sensor"],
+    "description": "The WeatherRack2 sensor distributed by Switchdoc Labs",
+    "fields": [
+        {
+            "field_name": "label",
+            "display_name": "Label",
+            "data_type": "string",
+            "kind": "calculated",
+            "description": "label id of sensor - based on database store"
+        },
+        {
+            "field_name": "id",
+            "display_name": "Number ID",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "initial device id of sensor"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "gateway_id",
+            "display_name": "Gateway ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of reporting gateway"
+        },
+        {
+            "field_name": "source",
+            "display_name": "Source",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "direct or recovery"
+        },
+        {
+            "field_name": "model",
+            "display_name": "Model",
+            "data_type": "string",
+            "kind": "reported"
+        },
+        {
+            "field_name": "device",
+            "display_name": "Serial Number",
+            "data_type": "string",
+            "kind": "reported"
+        },
+        {
+            "field_name": "batterylow",
+            "display_name": "Low Battery Signal",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "avewindspeed",
+            "display_name": "Average Wind Speed",
+            "data_type": "number",
+            "kind": "reported",
+            "units_metric": "m/sec",
+            "units_imperial": "ft/sec"
+        },
+        {
+            "field_name": "gustwindspeed",
+            "display_name": "Last Gust Wind Speed",
+            "data_type": "number",
+            "kind": "reported",
+            "units_metric": "m/sec",
+            "units_imperial": "ft/sec"
+        },
+        {
+            "field_name": "winddirection",
+            "display_name": "Wind Direction",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "degrees"
+        },
+        {
+            "field_name": "cumulativerain",
+            "display_name": "Cumulative Rainfall",
+            "data_type": "number",
+            "kind": "reported",
+            "units_metric": "mm",
+            "units_imperial": "in"
+        },
+        {
+            "field_name": "temperature",
+            "display_name": "Temperature",
+            "data_type": "number",
+            "kind": "reported",
+            "units_metric": "\u00b0C",
+            "units_imperial": "\u00b0F"
+        },
+        {
+            "field_name": "humidity",
+            "display_name": "Relative Humidity",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "percent"
+        },
+        {
+            "field_name": "light",
+            "display_name": "Visible Sunlight",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "lx"
+        },
+        {
+            "field_name": "uv",
+            "display_name": "Ultraviolet Light",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "UV scale"
+        },
+        {
+            "field_name": "mic",
+            "display_name": "Integrity Code",
+            "data_type": "string",
+            "kind": "reported"
+        },
+        {
+            "field_name": "mod",
+            "display_name": "[Signal] Modulation Type",
+            "data_type": "string",
+            "kind": "reported"
+        },
+        {
+            "field_name": "freq",
+            "display_name": "[Signal] Frequency",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "MHz"
+        },
+        {
+            "field_name": "rssi",
+            "display_name": "[Signal] Strength",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "dBm"
+        },
+        {
+            "field_name": "snr",
+            "display_name": "[Signal] Strength-to-Noise Ratio",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "dBm"
+        },
+        {
+            "field_name": "noise",
+            "display_name": "[Signal] Noise",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "dBm"
+        },
+        {
+            "field_name": "dew_point",
+            "display_name": "Dew/Frost Point Estimate",
+            "data_type": "number",
+            "kind": "calculated",
+            "units_metric": "\u00b0C",
+            "units_imperial": "\u00b0F"
+        },
+        {
+            "field_name": "last_rain",
+            "display_name": "Date of Last Rain",
+            "data_type": "date",
+            "kind": "calculated"
+        },
+        {
+            "field_name": "total_rainfall",
+            "display_name": "Total Rainfall",
+            "data_type": "number",
+            "kind": "calculated",
+            "units_metric": "mm",
+            "units_imperial": "in"
+        }
+    ]
+}
+
+
+
+
+

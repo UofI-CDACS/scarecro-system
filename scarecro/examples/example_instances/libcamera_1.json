@@ -1,0 +1,10 @@
+{
+    "instance_id": "gateway_example",
+    "display_name": "Example Camera",
+    "message_type": "image_info",
+    "camera_type": "libcamera",
+    "description": "The Camera Example Instance",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude_orthometric": 0.0
+}

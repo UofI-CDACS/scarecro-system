@@ -1,0 +1,82 @@
+{
+    "message_id": "image_info",
+    "display_name": "Image Info",
+    "message_database": "image_info",
+    "instance_database": "image_info_instances",
+    "id_field": "id",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "inheritance": ["default_sensor"],
+    "description": "Gives the local and cloud storage path for a given image taken on a local system",
+    "fields": [
+        {
+            "field_name": "id",
+            "display_name": "ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of sensor"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "gateway_id",
+            "display_name": "Gateway ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of reporting gateway"
+        },
+        {
+            "field_name": "source",
+            "display_name": "Source",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "direct or recovery"
+        },
+        {
+            "field_name": "file_name",
+            "display_name": "File Name",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "Name of Image File"
+        },
+        {
+            "field_name": "disk_path",
+            "display_name": "Disk Path",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "path on local disk where image located (including filename)"
+        },
+        {
+            "field_name": "cloud_path",
+            "display_name": "Cloud Path",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "path on cloud storage where image located (including filename)"
+        },
+        {
+            "field_name": "camera_type",
+            "display_name": "Camera Type",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "Type of camera image was taken with"
+        },
+        {
+            "field_name": "image_resolution",
+            "display_name": "Image Resolution",
+            "data_type": "array",
+            "kind": "reported",
+            "description": "List of width, height image resolution"
+        }
+    ]
+}
+
+
+
+
+

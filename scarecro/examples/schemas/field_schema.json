@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "title": "field",
+    "properties": {
+        "field_name": {
+            "type": "string",
+            "description": "Name of the field"
+        },
+        "display_name":{
+            "type": "string",
+            "description": "display name of the field"
+        },
+        "data_type":{
+            "type": "string",
+            "description": "data type of the field - can be string, number, boolean, date, or unknown",
+            "enum": ["string", "number", "boolean","object", "array", "date", "unknown"]
+        },
+        "kind":{
+            "type": "string",
+            "description": "notes whether the field is reported, calculated, or unknown",
+            "enum": ["reported", "calculated", "unknown"]
+        },
+        "units":{
+            "type": "string",
+            "description": "Units of the field, if known and applicable"
+        },
+        "tags":{
+            "type": "array",
+            "items": {"type": "string"}
+        },
+        "description": {
+            "type": "string",
+            "description": "Optional description of the field"
+        }
+    },
+    "required": ["field_name"]
+}
