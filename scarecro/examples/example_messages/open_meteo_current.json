@@ -1,0 +1,215 @@
+{
+    "message_id": "open_meteo_current",
+    "display_name": "Open Meteo Current",
+    "instance_database": "open_meteo_current_instances",
+    "message_database": "open_meteo_current",
+    "id_field": "id",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "message_rate": 900,
+    "map_icon": "SensorsIcon",
+    "description": "The Open Meteo Current provides many current weather parameters (15 minute intervals)",
+    "fields": [
+        {
+            "field_name": "id",
+            "display_name": "ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of forecasting device, created from the system id"
+        },
+        {
+            "field_name": "forecast_type",
+            "display_name": "Forecast Type",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "the type of forecast: either daily, hourly, or current. For this message, it should always be current"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "latitude",
+            "display_name": "Latitude",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "the latitude location of the forecast"
+        },
+        {
+            "field_name": "longitude",
+            "display_name": "Longitude",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "the Longitude location of the forecast"
+        },
+        {
+            "field_name": "generationtime_ms",
+            "display_name": "Generation Time (MS)",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "the generation time of the request"
+        },
+        {
+            "field_name": "utc_offset_seconds",
+            "display_name": "UTC Offset Seconds",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "seconds offset from UTC"
+        },
+        {
+            "field_name": "timezone",
+            "display_name": "Timezone",
+            "data_type": "string",
+            "kind": "reported"
+        },
+        {
+            "field_name": "timezone_abbreviation",
+            "display_name": "Timezone Abbreviation",
+            "data_type": "string",
+            "kind": "reported"
+        },
+        {
+            "field_name": "elevation",
+            "display_name": "Elevation",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "current_units",
+            "display_name": "Current Units",
+            "data_type": "array",
+            "kind": "reported",
+            "description": "a list, in order, of all the units for each field in the message"
+        },
+        {
+            "field_name": "forecast_time",
+            "display_name": "Forecast Time",
+            "data_type": "date",
+            "kind": "reported",
+            "units": "ISO8601",
+            "description": "the time of forecast"
+        },
+        {
+            "field_name": "interval",
+            "display_name": "Interval",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "seconds",
+            "description": "the interval of forecast"
+        },
+        {
+            "field_name": "temperature_2m",
+            "display_name": "Temperature (2m)",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "F"
+        },
+        {
+            "field_name": "relative_humidity_2m",
+            "display_name": "Relative Humidity (2m)",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "percent"
+        },
+        {
+            "field_name": "apparent_temperature",
+            "display_name": "Apparent Temperature",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "F"
+        },
+        {
+            "field_name": "is_day",
+            "display_name": "Is Day?",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "1 if day, 0 otherwise"
+        },
+        {
+            "field_name": "precipitation",
+            "display_name": "Precipitation",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mm"
+        },
+        {
+            "field_name": "rain",
+            "display_name": "Rain",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mm"
+        },
+        {
+            "field_name": "showers",
+            "display_name": "Showers",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mm"
+        },
+        {
+            "field_name": "snowfall",
+            "display_name": "Snowfall",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "cm"
+        },
+        {
+            "field_name": "weather_code",
+            "display_name": "Weather Code",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "wmo code"
+        },
+        {
+            "field_name": "cloud_cover",
+            "display_name": "Cloud Cover",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "percent"
+        },
+        {
+            "field_name": "pressure_msl",
+            "display_name": "Pressure MSL",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "hPa"
+        },
+        {
+            "field_name": "surface_pressure",
+            "display_name": "Surface Pressure",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "hPa"
+        },
+        {
+            "field_name": "wind_speed_10m",
+            "display_name": "Wind Speed (10m)",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mph"
+        },
+        {
+            "field_name": "wind_direction_10m",
+            "display_name": "Wind Direction (10m)",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "degrees"
+        },
+        {
+            "field_name": "wind_gusts_10m",
+            "display_name": "Wind Gusts (10m)",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mph"
+        }
+    ]
+}
+
+
+
+
+

@@ -4,4 +4,4 @@ This page documents the currently implemented handlers located in the /src/handl
 - [kkm_k6p](handler_docs/handler_kkm_k6p.md)
 - [renogy_solar_charger](handler_docs/handler_renogy_solar_charger.md)
 - [switchdoc_handler](handler_docs/handler_switchdoc_sensors.md)  
-
+- [open_meteo_handler](handler_docs/handler_open_meteo.md)

@@ -1,0 +1,592 @@
+{
+    "message_id": "open_meteo_daily_forecast",
+    "display_name": "Open Meteo Daily Forecast",
+    "instance_database": "open_meteo_daily_forecast_instances",
+    "message_database": "open_meteo_daily_forecast",
+    "id_field": "id",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "message_rate": 86400,
+    "map_icon": "SensorsIcon",
+    "description": "The Open Meteo Daily Forecast provides many forecasted daily weather variables for 7 days",
+    "fields": [
+        {
+            "field_name": "id",
+            "display_name": "ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of forecasting device, created from the system id"
+        },
+        {
+            "field_name": "forecast_type",
+            "display_name": "Forecast Type",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "the type of forecast: either daily, hourly, or current. For this message, it should always be daily"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "first_time",
+            "display_name": "First Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "the first forecast day in the message"
+        },
+        {
+            "field_name": "last_time",
+            "display_name": "Last Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "the last forecast day in the message"
+        },
+        {
+            "field_name": "latitude",
+            "display_name": "Latitude",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "the latitude location of the forecast"
+        },
+        {
+            "field_name": "longitude",
+            "display_name": "Longitude",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "the Longitude location of the forecast"
+        },
+        {
+            "field_name": "generationtime_ms",
+            "display_name": "Generation Time (MS)",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "the generation time of the request"
+        },
+        {
+            "field_name": "utc_offset_seconds",
+            "display_name": "UTC Offset Seconds",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "seconds offset from UTC"
+        },
+        {
+            "field_name": "timezone",
+            "display_name": "Timezone",
+            "data_type": "string",
+            "kind": "reported"
+        },
+        {
+            "field_name": "timezone_abbreviation",
+            "display_name": "Timezone Abbreviation",
+            "data_type": "string",
+            "kind": "reported"
+        },
+        {
+            "field_name": "elevation",
+            "display_name": "Elevation",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "daily_units",
+            "display_name": "Daily Units",
+            "data_type": "array",
+            "kind": "reported",
+            "description": "a list, in order, of all the units for each field in the message"
+        },
+        {
+            "field_name": "forecast_days",
+            "display_name": "Forecast Days",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "ISO8601",
+            "description": "a list of all the forecast days"
+        },
+        {
+            "field_name": "weather_code",
+            "display_name": "Weather Code",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "wmo code",
+            "description": "a list of all the forecast days weather codes"
+        },
+        {
+            "field_name": "temperature_2m_max",
+            "display_name": "Temperature (2m Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "temperature_2m_min",
+            "display_name": "Temperature (2m Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "apparent_temperature_max",
+            "display_name": "Apparent Temperature Max",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "apparent_temperature_min",
+            "display_name": "Apparent Temperature Min",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "sunrise",
+            "display_name": "Sunrise",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "ISO8601",
+            "description": "list of datetimes, ISO format"
+        },
+        {
+            "field_name": "sunset",
+            "display_name": "Sunset",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "ISO8601",
+            "description": "list of datetimes, ISO format"
+        },
+        {
+            "field_name": "sunshine_duration",
+            "display_name": "Sunshine Duration",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "seconds",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "daylight_duration",
+            "display_name": "Daylight Duration",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "seconds",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "uv_index_max",
+            "display_name": "UV Index Max",
+            "data_type": "array",
+            "kind": "reported",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "uv_index_clear_sky_max",
+            "display_name": "UV Index Clear Sky Max",
+            "data_type": "array",
+            "kind": "reported",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "rain_sum",
+            "display_name": "Rain Sum",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mm",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "showers_sum",
+            "display_name": "Showers Sum",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mm",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "snowfall_sum",
+            "display_name": "Snowfall Sum",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "cm",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "precipitation_sum",
+            "display_name": "Precipitation Sum",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mm",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "precipitation_hours",
+            "display_name": "Precipitation Hours",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "hours",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "precipitation_probability_max",
+            "display_name": "Precipitation Probability Max",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "percent",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "wind_speed_10m_max",
+            "display_name": "Wind Speed (10m Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mph",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "wind_direction_10m_dominant",
+            "display_name": "Wind Direction (10m Dominant)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "degrees",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "wind_gusts_10m_max",
+            "display_name": "Wind Gusts (10m Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mph",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "shortwave_radiation_sum",
+            "display_name": "Shortwave Radiation Sum",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mjm2",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "et0_fao_evapotranspiration",
+            "display_name": "ET0 FAO Evapotranspiration",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mm",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "wet_bulb_temperature_2m_mean",
+            "display_name": "Wet Bulb Temperature (2m Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "wet_bulb_temperature_2m_max",
+            "display_name": "Wet Bulb Temperature (2m Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "wet_bulb_temperature_2m_min",
+            "display_name": "Wet Bulb Temperature (2m Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "vapour_pressure_deficit",
+            "display_name": "Vapour Pressure Decicit (Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "kPa",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "surface_pressure_mean",
+            "display_name": "Surface Pressure (Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "hPa",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "surface_pressure_max",
+            "display_name": "Surface Pressure (Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "hPa",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "surface_pressure_min",
+            "display_name": "Surface Pressure (Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "hPa",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "updraft_max",
+            "display_name": "Updraft (Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "m/s",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "visibility_mean",
+            "display_name": "Visibility (Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "m",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "visibility_max",
+            "display_name": "Visibility (Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "m",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "winddirection_10m_dominant",
+            "display_name": "Wind Direction (10m Dominant)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "degrees",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "wind_gusts_10m_mean",
+            "display_name": "Wind Gusts (10m Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mph",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "wind_speed_10m_mean",
+            "display_name": "Wind Speed (10m Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mph",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "wind_gusts_10m_min",
+            "display_name": "Wind Gusts (10m Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mph",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "wind_speed_10m_min",
+            "display_name": "Wind Speed (10m Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mph",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "et0_fao_evapotranspiration_sum",
+            "display_name": "ET0 FAO Evapotranspiration (Sum)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mm",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "leaf_wetness_probability_mean",
+            "display_name": "Leaf Wetness Probability (Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "precipitation_probability_mean",
+            "display_name": "Precipitation Probability (Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "percent",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "precipitation_probability_min",
+            "display_name": "Precipitation Probability (Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "percent",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "growing_degree_days_base_0_limit_50",
+            "display_name": "Growing Degree Days (Base 0, Limit 50)",
+            "data_type": "array",
+            "kind": "reported",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "relative_humidity_2m_mean",
+            "display_name": "Relative Humidity (2m Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "percent",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "relative_humidity_2m_max",
+            "display_name": "Relative Humidity (2m Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "percent",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "relative_humidity_2m_min",
+            "display_name": "Relative Humidity (2m Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "percent",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "temperature_2m_mean",
+            "display_name": "Temperature (2m Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "apparent_temperature_mean",
+            "display_name": "Apparent Temperature (Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "cape_mean",
+            "display_name": "Cape (Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "J/kg",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "cape_max",
+            "display_name": "Cape (Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "J/kg",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "cape_min",
+            "display_name": "Cape (Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "J/kg",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "cloud_cover_mean",
+            "display_name": "Cloud Cover (Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "percent",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "cloud_cover_max",
+            "display_name": "Cloud Cover (Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "percent",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "cloud_cover_min",
+            "display_name": "Cloud Cover (Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "percent",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "dew_point_2m_mean",
+            "display_name": "Dew Point (2m Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "dew_point_2m_max",
+            "display_name": "Dew Point (2m Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "dew_point_2m_min",
+            "display_name": "Dew Point (2m Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "F",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "snowfall_water_equivalent_sum",
+            "display_name": "Snow Water Equivalent (Sum)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "mm",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "pressure_msl_mean",
+            "display_name": "Pressure MSL (Mean)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "hPa",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "pressure_msl_max",
+            "display_name": "Pressure MSL (Max)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "hPa",
+            "description": "list of numbers"
+        },
+        {
+            "field_name": "pressure_msl_min",
+            "display_name": "Pressure MSL (Min)",
+            "data_type": "array",
+            "kind": "reported",
+            "units": "hPa",
+            "description": "list of numbers"
+        }
+    ]
+}
+
+
+
+
+

@@ -10,4 +10,5 @@ This page documents the currently implemented carriers located in the /src/carri
 - [s3 storage (AWS)](carrier_docs/carrier_s3.md)
 - [Underlying System](carrier_docs/carrier_underlying_system.md) 
 - [Blynk (Legacy - Switchdoc Labs)](carrier_docs/carrier_blynk_legacy.md)
+- [API](carrier_docs/carrier_api.md)
 - Tempest UDP Stream (Coming Soon - Under Review for Changes)
