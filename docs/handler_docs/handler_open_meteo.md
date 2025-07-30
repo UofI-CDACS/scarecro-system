@@ -34,7 +34,7 @@ No specific carrier configuration needs, but it will expect it to come in json f
 
 ## Address Configurations: 
 - no additional address configuration needs for this handler. Just needs the handler and function identified. 
-- Example: 
+- Example: (lat and long coordinates are for Coeur d'Alene, Idaho)
 **open_meteo_daily_in.json**:
 
         {
@@ -64,4 +64,4 @@ This uses the lat/long of CDA to get the daily forecast weather data.
 ## Tested 
 - open_meteo_daily_forecast 
 - open_meteo_current
-
+- TODO: Hourly (Hourly Data includes some soil properties, which would potentially be good to have/forecast)
