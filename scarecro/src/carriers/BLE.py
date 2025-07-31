@@ -237,7 +237,7 @@ class BLE():
                     else:
                         logging.debug("Client not connected")
             except Exception as e:
-                logging.error(f"Error with BLE connect to client: {e}")
+                logging.error(f"Error with BLE connect to client: {e}", exc_info=True)
                 #await asyncio.sleep(1.0)
         except Exception as e:
             logging.error(f"Issue with Bleak Write Read: {e}")
