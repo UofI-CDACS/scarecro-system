@@ -216,22 +216,26 @@ class BLE():
         restart_flag = 0
         try:
             #Attempting to follow advice here: https://github.com/hbldh/bleak/issues/666 
-            retries = 5
+            #Essentially no restarts
+            retries = 1
             attempt = 0 
             for i in range(0, retries):
                 try:
                     logging.info(f"BLE connection attempt: {attempt}")
                     attempt += 1
                     async with BleakClient(mac_address) as client:
-                        logging.debug("Connected")
-                        await client.start_notify(read_uuid, self.write_read_callback)
-                        #Try this when next working on it 
-                        response_back = await client.write_gatt_char(write_uuid, data_to_write)
-                        #MARKED - may take this out later 
-                        logging.debug(f"Response: {response_back}")
-                        await asyncio.sleep(5.0)
-                        await client.stop_notify(read_uuid)
-                        return True
+                        if client.is_connected:
+                            logging.debug("Connected")
+                            await client.start_notify(read_uuid, self.write_read_callback)
+                            #Try this when next working on it 
+                            response_back = await client.write_gatt_char(write_uuid, data_to_write)
+                            #MARKED - may take this out later 
+                            logging.debug(f"Response: {response_back}")
+                            await asyncio.sleep(5.0)
+                            await client.stop_notify(read_uuid)
+                            return True
+                        else:
+                            logging.debug("Client not connected")
                 except Exception as e:
                     logging.error(f"Error with BLE connect to client: {e}")
                 await asyncio.sleep(1.0)
@@ -299,7 +303,6 @@ class BLE():
             self.get_readings_from_write_read(address_names)
         else:
             while True:
-                pass 
                 self.get_readings_from_write_read(address_names)
                 time.sleep(300)
     
