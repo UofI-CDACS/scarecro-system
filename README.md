@@ -66,10 +66,10 @@ There are several principal abstraction components of the SCARECRO system: messa
 
 ### Software Setup and Installation
 - Install a SCARECRO gateway on a Raspberry Pi
-- Install a SCARECRO middle agent on a Linux computer 
+- [Install a SCARECRO cloud unit on a Linux computer](docs/cloud_server_setup.md) 
 
 ### Hardware Setup and Installation 
-- Building an outdoor SCARECRO gateway 
+- [Building an outdoor SCARECRO gateway](docs/gateway_hardware_build.md) 
 
 ### The Data Gator 
 TODO

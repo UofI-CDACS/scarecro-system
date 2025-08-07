@@ -246,6 +246,7 @@ class BLE():
                 restart_flag = 1
             except Exception as e:
                 logging.error(f"Could not bring BT up and down with rfkill: {e}")
+        #MARKED - this might need to go 
         if attempt >= 4 and restart_flag == 0:
             self.restart_bluetooth()
             restart_flag = 1

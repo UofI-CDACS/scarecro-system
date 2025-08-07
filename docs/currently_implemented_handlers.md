@@ -5,3 +5,4 @@ This page documents the currently implemented handlers located in the /src/handl
 - [renogy_solar_charger](handler_docs/handler_renogy_solar_charger.md)
 - [switchdoc_handler](handler_docs/handler_switchdoc_sensors.md)  
 - [open_meteo_handler](handler_docs/handler_open_meteo.md)
+- [tempest_handler](handler_docs/handler_tempest.md)
