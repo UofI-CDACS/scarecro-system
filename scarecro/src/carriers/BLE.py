@@ -43,6 +43,7 @@ class BLE():
         logging.info("Initialized BLE carrier")
         self.working_mac = None 
         self.working_address = None 
+        self.connect_attempts = 0
 
     def create_mappings(self):
         """
@@ -236,20 +237,22 @@ class BLE():
                         return True
                     else:
                         logging.debug("Client not connected")
+                        self.connect_attempts += 1
             except Exception as e:
                 logging.error(f"Error with BLE connect to client: {e}", exc_info=True)
                 #await asyncio.sleep(1.0)
         except Exception as e:
             logging.error(f"Issue with Bleak Write Read: {e}")
+            self.connect_attempts += 1
             try:
                 self.restart_bluetooth()
                 restart_flag = 1
             except Exception as e:
                 logging.error(f"Could not bring BT up and down with rfkill: {e}")
         #MARKED - this might need to go 
-        if attempt >= 4 and restart_flag == 0:
+        if self.connect_attempts >= 3:
             self.restart_bluetooth()
-            restart_flag = 1
+            self.connect_attempts = 0
 
     def get_readings_from_write_read(self, address_names):
         """
