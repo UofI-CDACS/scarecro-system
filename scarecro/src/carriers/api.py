@@ -14,7 +14,7 @@ class API():
         API does not need anything specific in the carrier config 
         API needs in its  addresses config:
         "request_type": (string, "GET", or "POST") a list of strings that the incoming json message can match to identify it (**default in carrier**: "GET")
-        "url": (String, or None) the url of the endpoint to ping (**Default**: None) NOTE: This url would include any arguments or authorization tokens, as there is no parsing or combination mechanisms currently implemented in the carrier. If you need more complex behavior, we would recommend making an api-specific carrier for the endpoint(s) you plan to use 
+        "url": (List of strings, String, or None) the url (or list of them) of the endpoint to ping (**Default**: None) NOTE: This url would include any arguments or authorization tokens, as there is no parsing or combination mechanisms currently implemented in the carrier. If you need more complex behavior, we would recommend making an api-specific carrier for the endpoint(s) you plan to use 
         "headers" (dict, or None): A dictionary of header names and string values, in the format expected by the python requests dictionary, for the given api (**Default**: None) (POST only)
         "data": (string, or None): A string of the data to send via the post request (**Default**: None) (POST only)
         """
@@ -33,27 +33,25 @@ class API():
         """
         logging.info("Disconnect API: No actions needed for API disconnect in this driver.")  
 
-    def process_get_request(self, address_name):
+    def process_get_request(self, address_name, url):
         """
-        Takes in an address name, gets data needed to get a response 
+        Takes in an address name, url, gets data needed to get a response 
         using a get request 
         """
         response = {}
         try:
-            url = self.mapping_dict.get("url", {}).get("address_name", {}).get(address_name, None)
             response = requests.get(url)
         except Exception as e:
             logging.error(f"Could not process GET request for {address_name}: {e}", exc_info=True)
         return response 
 
-    def process_post_request(self, address_name):
+    def process_post_request(self, address_name, url):
         """
-        Takes in an address name, gets data needed to get a response 
+        Takes in an address name, url, gets data needed to get a response 
         using a post request
         """
         response = {}
         try:
-            url = self.mapping_dict.get("url", {}).get("address_name", {}).get(address_name, None)
             headers = self.mapping_dict.get("headers", {}).get("address_name", {}).get(address_name, None)
             data = self.mapping_dict.get("data", {}).get("address_name", {}).get(address_name, None)
             if headers == None and data == None:
@@ -69,7 +67,7 @@ class API():
         return response 
 
 
-    def ping_api(self, address_name):
+    def ping_api(self, address_name, url):
         """
         Takes in an address name and uses the configured address information to 
         ping an endpoint 
@@ -80,10 +78,10 @@ class API():
             request_type = self.mapping_dict.get("request_type", {}).get("address_name", {}).get(address_name, "GET")
             #If the request type is GET, get from the URL
             if request_type == "GET":
-                response = self.process_get_request(address_name)
+                response = self.process_get_request(address_name, url)
             #TOD_ may want this in own body 
             elif request_type == "POST":
-                response = self.process_post_request(address_name)
+                response = self.process_post_request(address_name, url)
             else:
                 logging.error(f"Request type {request_type} not understood")
                 response = {}
@@ -101,9 +99,26 @@ class API():
                         logging.error(f"Could not post API message on address {address_name}: {e}", exc_info=True)
                 #Otherwise, note the error
                 else:
-                    logging.error(f"Response code on address {address_name}: {e}")
+                    logging.error(f"Response code on address {address_name}: {response.status_code}")
         except Exception as e:
             logging.error(f"Error in ping api function for address {address_name}: {e}", exc_info=True)
+
+    def handle_api_request(self, address_name):
+        """
+        Takes in an address name and decides to process one or multiple
+        apis based on whether the url is a list or string
+        """
+        try:
+            url = self.mapping_dict.get("url", {}).get("address_name", {}).get(address_name, None)
+            if isinstance(url, list):
+                for individ_url in url:
+                    self.ping_api(address_name, url)
+            else:
+                self.ping_api(address_name, url)
+        except Exception as e:
+            logging.error(f"Could not handle api request: {e}")
+        return 
+
 
     def receive(self, address_names, duration):
         """
@@ -115,11 +130,11 @@ class API():
         try:
             if duration == "always":
                 for address_name in address_names:
-                    self.ping_api(address_name)
+                    self.handle_api_request(address_name)
                 time.sleep(300)
             else:
                 for address_name in address_names:
-                    self.ping_api(address_name)
+                    self.handle_api_request(address_name)
         except Exception as e:
             logging.error(f"Error in api receive {e}", exc_info=True)
 

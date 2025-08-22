@@ -28,7 +28,7 @@ Python libraries you will need include:
 ## Address Configurations: 
 - in the "additional_info" section:
     - "request_type": (string, "GET", or "POST") a list of strings that the incoming json message can match to identify it (**default in carrier**: "GET")
-    - "url": (String, or None) the url of the endpoint to ping (**Default**: None) NOTE: This url would include any arguments or authorization tokens, as there is no parsing or combination mechanisms currently implemented in the carrier. If you need more complex behavior, we would recommend making an api-specific carrier for the endpoint(s) you plan to use 
+    - "url": (List of Strings, String, or None) the url (or list of them) of the endpoint to ping (**Default**: None) NOTE: This url would include any arguments or authorization tokens, as there is no parsing or combination mechanisms currently implemented in the carrier. If you need more complex behavior, we would recommend making an api-specific carrier for the endpoint(s) you plan to use 
     - "headers" (dict, or None): A dictionary of header names and string values, in the format expected by the python requests dictionary, for the given api (**Default**: None) (POST only)
     - "data": (string, or None): A string of the data to send via the post request (**Default**: None) (POST only)
 
