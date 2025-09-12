@@ -240,6 +240,13 @@ class BLE():
                         self.connect_attempts += 1
             except Exception as e:
                 logging.error(f"Error with BLE connect to client: {e}", exc_info=True)
+                #Addomg this as a potential issue 
+                try:
+                    await client.stop_notify(read_uuid)
+                except Exception as e:
+                    #MARKED - porbably ideally use an error message or 
+                    #better context checking
+                    pass
                 #await asyncio.sleep(1.0)
         except Exception as e:
             logging.error(f"Issue with Bleak Write Read: {e}")
