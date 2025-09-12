@@ -233,20 +233,23 @@ class BLE():
                         #MARKED - may take this out later 
                         logging.debug(f"Response: {response_back}")
                         await asyncio.sleep(5.0)
-                        await client.stop_notify(read_uuid)
+                        
                         return True
                     else:
                         logging.debug("Client not connected")
                         self.connect_attempts += 1
+                    try:
+                        await client.disconnect()
+                    except Exception as e:
+                        logging.error(f"Could not disconnect Bleak Client {e}")
             except Exception as e:
                 logging.error(f"Error with BLE connect to client: {e}", exc_info=True)
-                #Addomg this as a potential issue 
+                #Adding this as a potential issue 
                 try:
                     await client.stop_notify(read_uuid)
+                    await client.disconnect()
                 except Exception as e:
-                    #MARKED - porbably ideally use an error message or 
-                    #better context checking
-                    pass
+                    logging.error(f"Could not stop notify Bleak Client {e}")
                 #await asyncio.sleep(1.0)
         except Exception as e:
             logging.error(f"Issue with Bleak Write Read: {e}")
