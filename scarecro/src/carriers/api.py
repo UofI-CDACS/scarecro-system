@@ -112,7 +112,7 @@ class API():
             url = self.mapping_dict.get("url", {}).get("address_name", {}).get(address_name, None)
             if isinstance(url, list):
                 for individ_url in url:
-                    self.ping_api(address_name, url)
+                    self.ping_api(address_name, individ_url)
             else:
                 self.ping_api(address_name, url)
         except Exception as e:

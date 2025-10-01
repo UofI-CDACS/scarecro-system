@@ -1,0 +1,274 @@
+{
+    "message_id": "tempest_device",
+    "display_name": "Tempest Device",
+    "instance_database": "tempest_device_instances",
+    "message_database": "tempest_device",
+    "id_field": "id",
+    "time_field": "time",
+    "timestamp_field_format": "ISO8601",
+    "timezone": "UTC",
+    "message_rate": 300,
+    "map_icon": "SensorsIcon",
+    "description": "The latest weather device observation from the Tempest API",
+    "fields": [
+        {
+            "field_name": "id",
+            "display_name": "ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "id of forecasting device, created from the system id"
+        },
+        {
+            "field_name": "time",
+            "display_name": "Time",
+            "data_type": "date",
+            "kind": "reported",
+            "description": "reading time"
+        },
+        {
+            "field_name": "type",
+            "display_name": "Type",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "type of Tempest system observation"
+        },
+        {
+            "field_name": "device_id",
+            "display_name": "Device ID",
+            "data_type": "string",
+            "kind": "reported",
+            "description": "should be same as ID"
+        },
+        {
+            "field_name": "pressure_trend",
+            "display_name": "Pressure Trend",
+            "data_type": "string",
+            "kind": "reported"
+        },
+        {
+            "field_name": "strike_count_1h",
+            "display_name": "Strike Count 1h",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "strike_count_3h",
+            "display_name": "Strike Count 3h",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "precip_total_1h",
+            "display_name": "Precipitation Total 1h",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "strike_last_dist",
+            "display_name": "Strike Last Distance",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "strike_last_epoch",
+            "display_name": "Strike Last Epoch",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "s"
+        },
+        {
+            "field_name": "precip_accum_local_yesterday",
+            "display_name": "Precipitation Accumulation Local Yesterday",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "precip_accum_local_yesterday_final",
+            "display_name": "Precipitation Accumulation Local Yesterday Final",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "precip_analysis_type_yesterday",
+            "display_name": "Precipitation Analysis Type Yesterday",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "feels_like",
+            "display_name": "Feels Like",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "heat_index",
+            "display_name": "Heat Index",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "wind_chill",
+            "display_name": "Wind Chill",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "epoch",
+            "display_name": "Epoch",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "seconds"
+        },
+        {
+            "field_name": "wind_lull",
+            "display_name": "Wind Lull",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "m/s"
+        },
+        {
+            "field_name": "wind_avg",
+            "display_name": "Wind Average",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "m/s"
+        },
+        {
+            "field_name": "wind_gust",
+            "display_name": "Wind Gust",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "m/s"
+        },
+        {
+            "field_name": "wind_direction",
+            "display_name": "Wind Direction",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "degrees"
+        },
+        {
+            "field_name": "wind_sample_interval",
+            "display_name": "Wind Sample Interval",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "seconds"
+        },
+        {
+            "field_name": "pressure",
+            "display_name": "Pressure",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mb"
+        },
+        {
+            "field_name": "air_temperature",
+            "display_name": "Air Temperature",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "C"
+        },
+        {
+            "field_name": "relative_humidity",
+            "display_name": "Relative Humidity",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "percent"
+        },
+        {
+            "field_name": "illuminance",
+            "display_name": "Illuminance",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "lux"
+        },
+        {
+            "field_name": "uv",
+            "display_name": "UV",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "index"
+        },
+        {
+            "field_name": "solar_radiation",
+            "display_name": "Solar Radiation",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "w/m2"
+        },
+        {
+            "field_name": "rain_accumulation",
+            "display_name": "Rain Accumulation",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mm"
+        },
+        {
+            "field_name": "precipitation_type",
+            "display_name": "Precipitation Type",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "0 = none, 1 = rain, 2 = hail, 3 = rain + hail (experimental)"
+        },
+        {
+            "field_name": "average_strike_distance",
+            "display_name": "Average Strike Distance",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "km"
+        },
+        {
+            "field_name": "strike_count",
+            "display_name": "Average Strike Distance",
+            "data_type": "number",
+            "kind": "reported"
+        },
+        {
+            "field_name": "battery",
+            "display_name": "Battery",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "V"
+        },
+        {
+            "field_name": "report_interval",
+            "display_name": "Reporting Inverval",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "minutes"
+        },
+        {
+            "field_name": "local_day_rain_accumulation",
+            "display_name": "Local Day Rain Accumulation",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mm"
+        },
+        {
+            "field_name": "nc_rain_accumulation",
+            "display_name": "Nearcast Rain Accumulation",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mm"
+        },
+        {
+            "field_name": "local_day_nc_rain_accumulation",
+            "display_name": "Local Day Nearcast Rain Accumulation",
+            "data_type": "number",
+            "kind": "reported",
+            "units": "mm"
+        },
+        {
+            "field_name": "precipitation_analysis_type",
+            "display_name": "Precipitation Analsysis Type",
+            "data_type": "number",
+            "kind": "reported",
+            "description": "0 = none, 1 = Nearcast value with display on, 2 = Nearcast value with display off"
+        }
+    ]
+}
+
+
+
+
+

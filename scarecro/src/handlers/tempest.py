@@ -37,6 +37,61 @@ class Tempest:
         message_envelope["msg_time"] = message_content.get(message_def.get("time_field", "time"), "default")
         return message_envelope
 
+    def parse_device_obs(self, message): 
+        """
+        Parsing Tempest Latest Device Observation
+        """
+        obs_key_list = [
+            "epoch",
+            "wind_lull",
+            "wind_avg",
+            "wind_gust",
+            "wind_direction",
+            "wind_sample_interval",
+            "pressure",
+            "air_temperature",
+            "relative_humidity",
+            "illuminance",
+            "uv",
+            "solar_radiation",
+            "rain_accumulation",
+            "precipitation_type",
+            "average_strike_distance",
+            "strike_count",
+            "battery",
+            "report_interval",
+            "local_day_rain_accumulation",
+            "nc_rain_accumulation",
+            "local_day_nc_rain_accumulation",
+            "precipitation_analysis_type"
+        ]
+        try:
+            #Make from system id
+            message["id"] = message.get("device_id", None)
+            #Then the time:
+            utc_curr_time = datetime.now(tz=pytz.UTC)
+            time_string = utc_curr_time.strftime("%Y-%m-%dT%H:%M:%S.%f")
+            message["time"] = time_string
+            #Get the device summary 
+            summary = message.get("summary", {})
+            for key, value in summary.items():
+                message[key] = value
+
+            #Then the obs
+            obs = message.get("obs", [False])[0]
+            if obs:
+                for i in range(0, len(obs_key_list)):
+                     message[obs_key_list[i]] = obs[i]
+            else:
+                logging.error(f"Issue with observations in Tempest Device message")
+            
+            message.pop("obs", None)
+            message.pop("summary", None)
+            message.pop("status", None)
+        except Exception as e:
+            logging.error(f"Error parsing tempest latest device observation message {e}", exc_info=True)
+        return message
+
     def parse_station_obs(self, message):
         """
         Parsing Tempest Latest Station Observation
@@ -156,7 +211,8 @@ class Tempest:
                     new_message = self.parse_station_obs(sub_message)
                 elif message_type == "tempest_forecast": 
                     new_message = self.parse_forecast(sub_message) 
-                
+                elif message_type == "tempest_device": 
+                    new_message = self.parse_device_obs(sub_message) 
                 if new_message == {}:
                     #logging.debug(f"Error processing message")
                     return [] 

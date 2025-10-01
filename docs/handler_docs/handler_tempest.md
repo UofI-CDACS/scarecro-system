@@ -55,9 +55,10 @@ No specific carrier configuration needs, but it will expect it to come in json f
 ## Behavior: 
 - This driver will override the system envelope with the parsed content. 
 - Please be careful and cognizant of the usage limits for Tempest
-- For the forecast, lists of readings are replaces with the forecast_type prefix (day or hour) before the field name, followed by a list of values 
+- For the forecast, lists of readings are replaced with the forecast_type prefix (day or hour) before the field name, followed by a list of values 
 
 ## Tested 
 - tempest_station
 - tempest_forecast
+- tempest_device
 

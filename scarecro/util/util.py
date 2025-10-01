@@ -108,6 +108,12 @@ def forward_backward_map_additional_info(addresses):
         for key, value in add_info.items():
             if key not in list(mapping_dict.keys()):
                 mapping_dict[key] = {"value": {}, "address_name": {}}
-            mapping_dict[key]["value"][value] = address_name
-            mapping_dict[key]["address_name"][address_name] = value
+            #CHECK - may break everything. 
+            if isinstance(value, list):
+                for sub_value in value:
+                    mapping_dict[key]["value"][sub_value] = address_name
+                mapping_dict[key]["address_name"][address_name] = value
+            else:
+                mapping_dict[key]["value"][value] = address_name
+                mapping_dict[key]["address_name"][address_name] = value
     return mapping_dict 
