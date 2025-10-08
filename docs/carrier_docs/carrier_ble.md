@@ -1,5 +1,5 @@
 # BLE Carrier
-This carrier can listen for sensors using BLE. It can either listen for broadcast messages without a connection or form a specific connection to listen on. 
+This carrier can listen specifically for the renogy sensor using BLE.  It can either listen for broadcast messages without a connection or form a specific connection to listen on. 
 
 ## Filename
 src/carriers/
