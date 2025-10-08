@@ -171,24 +171,26 @@ class Tempest:
             #Forecast
             forecast = message.get("forecast", False)
             if forecast:
-                #Daily 
-                daily_forecast = forecast.get("daily", [False])
-                first_day = daily_forecast[0]
-                if first_day:
-                    for key, value in first_day.items():
-                        message[f"day_{key}"] = []
-                    for day in daily_forecast:
-                        for key, value in day.items():
-                            message[f"day_{key}"].append(value)
-                #Hourly 
-                hourly_forecast = forecast.get("hourly", [False])
-                first_hour = hourly_forecast[0]
-                if first_hour:
-                    for key, value in first_hour.items():
-                        message[f"hour_{key}"] = []
-                    for hour in hourly_forecast:
-                        for key, value in hour.items():
-                            message[f"hour_{key}"].append(value)
+                message["daily"] = forecast.get("daily", [False])
+                message["hourly"] = forecast.get("hourly", [False])
+                # #Daily 
+                # daily_forecast = forecast.get("daily", [False])
+                # first_day = daily_forecast[0]
+                # if first_day:
+                #     for key, value in first_day.items():
+                #         message[f"day_{key}"] = []
+                #     for day in daily_forecast:
+                #         for key, value in day.items():
+                #             message[f"day_{key}"].append(value)
+                # #Hourly 
+                # hourly_forecast = forecast.get("hourly", [False])
+                # first_hour = hourly_forecast[0]
+                # if first_hour:
+                #     for key, value in first_hour.items():
+                #         message[f"hour_{key}"] = []
+                #     for hour in hourly_forecast:
+                #         for key, value in hour.items():
+                #             message[f"hour_{key}"].append(value)
             else:
                 logging.error("Issue with observations in Tempest Forecast message")
             message.pop("forecast", None)
