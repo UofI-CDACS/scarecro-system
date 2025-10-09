@@ -320,248 +320,262 @@
             "kind": "reported",
             "units": "mph"
         },
+        {
+            "field_name": "daily",
+            "display_name": "Daily Forecast Array",
+            "data_type": "list",
+            "kind": "reported",
+            "subfields": [
+                {
+                    "field_name": "air_temp_high",
+                    "display_name": "Day Air Temp High",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "F",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "air_temp_low",
+                    "display_name": "Day Air Temp Low",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "F",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "conditions",
+                    "display_name": "Day Conditions",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "description": "list of strings"
+                },
+                {
+                    "field_name": "day_num",
+                    "display_name": "Day Num",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "days",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "day_start_local",
+                    "display_name": "Day Start Local",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "seconds",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "icon",
+                    "display_name": "Day Icon",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "description": "list of strings"
+                },
+                {
+                    "field_name": "month_num",
+                    "display_name": "Day Month Num",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "days",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "precip_icon",
+                    "display_name": "Day Precipitation Icon",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "description": "list of strings"
+                },
+                {
+                    "field_name": "precip_probability",
+                    "display_name": "Day Precipitation Probability",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "percent",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "precip_type",
+                    "display_name": "Day Precipitation Type",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "description": "list of strings"
+                },
+                {
+                    "field_name": "sunrise",
+                    "display_name": "Day Sunrise",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "seconds",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "sunset",
+                    "display_name": "Day Sunset",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "seconds",
+                    "description": "list of numbers"
+                }
 
-        {
-            "field_name": "day_air_temp_high",
-            "display_name": "Day Air Temp High",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "F",
-            "description": "list of numbers"
+            ]
         },
         {
-            "field_name": "day_air_temp_low",
-            "display_name": "Day Air Temp Low",
-            "data_type": "array",
+            "field_name": "hourly",
+            "display_name": "Hourly Forecast Array",
+            "data_type": "list",
             "kind": "reported",
-            "units": "F",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "day_conditions",
-            "display_name": "Day Conditions",
-            "data_type": "array",
-            "kind": "reported",
-            "description": "list of strings"
-        },
-        {
-            "field_name": "day_day_num",
-            "display_name": "Day Num",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "days",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "day_day_start_local",
-            "display_name": "Day Start Local",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "seconds",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "day_icon",
-            "display_name": "Day Icon",
-            "data_type": "array",
-            "kind": "reported",
-            "description": "list of strings"
-        },
-        {
-            "field_name": "day_month_num",
-            "display_name": "Day Month Num",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "days",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "day_precip_icon",
-            "display_name": "Day Precipitation Icon",
-            "data_type": "array",
-            "kind": "reported",
-            "description": "list of strings"
-        },
-        {
-            "field_name": "day_precip_probability",
-            "display_name": "Day Precipitation Probability",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "percent",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "day_precip_type",
-            "display_name": "Day Precipitation Type",
-            "data_type": "array",
-            "kind": "reported",
-            "description": "list of strings"
-        },
-        {
-            "field_name": "day_sunrise",
-            "display_name": "Day Sunrise",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "seconds",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "day_sunset",
-            "display_name": "Day Sunset",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "seconds",
-            "description": "list of numbers"
-        },
-
-        {
-            "field_name": "hour_air_temperature",
-            "display_name": "Hour Air Temperature",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "F",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_conditions",
-            "display_name": "Hour Conditions",
-            "data_type": "array",
-            "kind": "reported",
-            "description": "list of strings"
-        },
-        {
-            "field_name": "hour_feels_like",
-            "display_name": "Hour Feels Like",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "F",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_icon",
-            "display_name": "Hour Icon",
-            "data_type": "array",
-            "kind": "reported",
-            "description": "list of strings"
-        },
-        {
-            "field_name": "hour_local_day",
-            "display_name": "Hour Local Day",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "days",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_local_hour",
-            "display_name": "Hour Local Hour",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "hours",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_precip",
-            "display_name": "Hour Precipitation",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "mm",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_precip_icon",
-            "display_name": "Hour Precipitation Icon",
-            "data_type": "array",
-            "kind": "reported",
-            "description": "list of strings"
-        },
-        {
-            "field_name": "hour_precip_probability",
-            "display_name": "Hour Precipitation Probability",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "percent",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_precip_type",
-            "display_name": "Hour Precipitation Type",
-            "data_type": "array",
-            "kind": "reported",
-            "description": "list of strings"
-        },
-        {
-            "field_name": "hour_relative_humidity",
-            "display_name": "Hour Relative Humidity",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "percent",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_sea_level_pressure",
-            "display_name": "Hour Sea Level Pressure",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "mb",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_station_pressure",
-            "display_name": "Hour Station Pressure",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "mb",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_time",
-            "display_name": "Hour Time",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "seconds",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_uv",
-            "display_name": "Hour UV",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "index",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_wind_avg",
-            "display_name": "Hour Wind Average",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "mph",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_wind_direction",
-            "display_name": "Hour Wind Direction",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "degrees",
-            "description": "list of numbers"
-        },
-        {
-            "field_name": "hour_wind_direction_cardinal",
-            "display_name": "Hour Wind Cardinal",
-            "data_type": "array",
-            "kind": "reported",
-            "description": "list of strings"
-        },
-        {
-            "field_name": "hour_wind_gust",
-            "display_name": "Hour Wind Gust",
-            "data_type": "array",
-            "kind": "reported",
-            "units": "mph",
-            "description": "list of numbers"
+            "subfields": [
+                {
+                    "field_name": "air_temperature",
+                    "display_name": "Hour Air Temperature",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "F",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "conditions",
+                    "display_name": "Hour Conditions",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "description": "list of strings"
+                },
+                {
+                    "field_name": "feels_like",
+                    "display_name": "Hour Feels Like",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "F",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "icon",
+                    "display_name": "Hour Icon",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "description": "list of strings"
+                },
+                {
+                    "field_name": "local_day",
+                    "display_name": "Hour Local Day",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "days",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "local_hour",
+                    "display_name": "Hour Local Hour",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "hours",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "precip",
+                    "display_name": "Hour Precipitation",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "mm",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "precip_icon",
+                    "display_name": "Hour Precipitation Icon",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "description": "list of strings"
+                },
+                {
+                    "field_name": "precip_probability",
+                    "display_name": "Hour Precipitation Probability",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "percent",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "precip_type",
+                    "display_name": "Hour Precipitation Type",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "description": "list of strings"
+                },
+                {
+                    "field_name": "relative_humidity",
+                    "display_name": "Hour Relative Humidity",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "percent",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "sea_level_pressure",
+                    "display_name": "Hour Sea Level Pressure",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "mb",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "station_pressure",
+                    "display_name": "Hour Station Pressure",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "mb",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "time",
+                    "display_name": "Hour Time",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "seconds",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "uv",
+                    "display_name": "Hour UV",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "index",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "wind_avg",
+                    "display_name": "Hour Wind Average",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "mph",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "wind_direction",
+                    "display_name": "Hour Wind Direction",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "degrees",
+                    "description": "list of numbers"
+                },
+                {
+                    "field_name": "wind_direction_cardinal",
+                    "display_name": "Hour Wind Cardinal",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "description": "list of strings"
+                },
+                {
+                    "field_name": "wind_gust",
+                    "display_name": "Hour Wind Gust",
+                    "data_type": "array",
+                    "kind": "reported",
+                    "units": "mph",
+                    "description": "list of numbers"
+                }
+            ]
         }
-        
     ]
 }
 
