@@ -175,6 +175,7 @@ class MQTT_Client():
         On the connection, subscribe to all relevant subscriptions already identified 
         for the client 
         """
+        attempts = 0
         logging.info(f"Connecting up MQTT Client")
         if reasonCode==0:
             if userdata == None:
@@ -192,6 +193,14 @@ class MQTT_Client():
                         status_list[i] = 1
         else:
             logging.error(f'{self.client_id} bad Connection, return code: {reasonCode}') 
+            attempts += 1
+            time.sleep(300)
+            #Try to reconnect
+            if attempts < 5:
+                try:
+                    self.client.connect()
+                except Exception as e:
+                    pass 
 
 
     #MARKED - may want to make this one function 
