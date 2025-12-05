@@ -15,7 +15,8 @@ The purpose of the SCARECRO system is to provide open-source, low-cost, flexible
 - Continuously add to and improve the system as we gain more experience in the field 
 
 TODO: Link to project website
-TODO: Link to project articles and papers. 
+
+
 
 ## Quick Links 
 TODO: Add quick links to high-usage documentation needs 
@@ -48,11 +49,11 @@ The structure of the repository is as follows:
     - **util**: contains utility python source code files. For instance, a lot of time functionality is contained in the main util.py code file. 
     - scarecro.py: Main python code file for starting up a a scarecro system. Will be reference in upcoming scarecro.service file. 
     - system_object.py: Storage variable for scarecro system object which is initialized in the system. 
-    - scarecro.service:  (coming soon)
+    - scarecro.service:  (TODO: coming soon)
 
 ## Documentation 
 ### How the System Works 
-There are several principal abstraction components of the SCARECRO system: messages (abstractions on which information packets are based), carriers (abstractions of communication protocols on which packets are sent/received), handlers (abstractions of messaging operations such as translation, transformation, and cleaning), tasks (abstractions of functional operations to keep the system running depending on how it is configured), the system (which manages all components together), and an optional updater (an meta-system management component)
+There are several principal abstraction components of the SCARECRO system: messages (abstractions on which information packets are based), carriers (abstractions of communication protocols on which packets are sent/received), handlers (abstractions of messaging operations such as translation, transformation, and cleaning), tasks (abstractions of functional operations to keep the system running depending on how it is configured), the system (which manages all components together), and an optional updater (a meta-system management component)
 
 - [SCARECRO System Overview:](/docs/system_overview.md) This file gives a comprehensive overview of how all the components work in the SCARECRO system. 
 - [Example System Configuration](/docs/example.md)
@@ -72,7 +73,7 @@ There are several principal abstraction components of the SCARECRO system: messa
 - [Building an outdoor SCARECRO gateway](docs/gateway_hardware_build.md) 
 
 ### The Data Gator 
-TODO
+The Data Gator is a sensor aggregator which can support wired and wireless sensors. It can be used as a standalone sensing unit or a method of extending the range and/or sensor interfaces available on the gateway. [You can find the Data Gator project repository here.](https://github.com/Data-Gator)
 
 ### Databases
 TODO
@@ -82,5 +83,17 @@ TODO
 
 
 
+## Project Papers and Posters
+- 2023: [The SCARECRO system: open-source design for precision agriculture adoption gaps](https://brill.com/edcollchap/book/9789086869473/BP000052.xml)
+- 2023: [Precision Agriculture Adoption and Integration Case Study](https://isure.uidaho.edu/wp-content/uploads/2023/03/SURF23Poster.pdf)
+- 2024: [Recovery Mechanism for Real-Time Precision Agriculture Sensor Networks: A Case Study](https://www.researchgate.net/profile/Mary-Everett-3/publication/385817104_Recovery_Mechanism_for_Real-Time_Precision_Agriculture_Sensor_Networks_A_Case_Study/links/673648e24a70511f071ee042/Recovery-Mechanism-for-Real-Time-Precision-Agriculture-Sensor-Networks-A-Case-Study.pdf)
+- 2024: [Data Gator: a Provision-less Network Solution for Collecting Data from Wired and Wireless Sensors](https://www.researchgate.net/profile/Mary-Everett-3/publication/385817493_Data_Gator_a_Provision-less_Network_Solution_for_Collecting_Data_from_Wired_and_Wireless_Sensors/links/6736473037496239b2bfe4a4/Data-Gator-a-Provision-less-Network-Solution-for-Collecting-Data-from-Wired-and-Wireless-Sensors.pdf)
+- 2024: [Explainable Neural Network Alternatives for AI Predictions: Genetic Algorithm Quantitative Association Rule Mining](https://www.researchgate.net/profile/Mary-Everett-3/publication/385817373_Explainable_Neural_Network_Alternatives_for_AI_Predictions_Genetic_Algorithm_Quantitative_Association_Rule_Mining/links/6736447b68de5e5a30772e51/Explainable-Neural-Network-Alternatives-for-AI-Predictions-Genetic-Algorithm-Quantitative-Association-Rule-Mining.pdf)
+- 2025: [Unsupervised learning to automatically determine microclimates in a vineyard](https://brill.com/edcollchap-oa/book/9789004725232/BP000103.xml)
 
+## Project News
+- 2023: [University of Idaho engineering 'smart' wine vineyard across the country](https://www.ktvb.com/article/news/local/208/local-university-of-idaho-engineering-smart-wine-vineyard-across-the-country/277-80f68315-e689-472b-80d2-34dade9d5b37)
+- 2023: [Super Smart Vineyards: UIdaho Students Develop Components to Help Vintners Increase Efficiency](https://www.thecowboychannel.com/super-smart-vineyards-uidaho-students-develop-components-to-help-vintners-increase-efficiency)
+- 2024: [AI-augmented system for sustainable crop production receives $120K grant](https://www.uidaho.edu/newsroom/ai-crop-system)
+- 2025: [Plowing through code](https://www.uidaho.edu/newsroom/robotics-scholarship-cda-campus)
 
