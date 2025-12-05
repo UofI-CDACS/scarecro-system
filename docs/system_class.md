@@ -1,7 +1,7 @@
 # System Class 
 
 ## Purpose of the System Class
-The system class is effectively the control scheme for the entire SCARECR system. It handles all of the information routing and interim storage. The system class is initialized with a system configuration. In general, to run a scarecro system, you:
+The system class is effectively the control scheme for the entire SCARECRO system. It handles all of the information routing and interim storage. The system class is initialized with a system configuration. In general, to run a scarecro system, you:
 - initialize the system class with the system configuration 
 - initialize the system ecosystem with the init_ecosystem() function
 - start the system schedule with the start_scheduler() function
