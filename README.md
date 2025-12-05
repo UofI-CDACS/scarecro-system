@@ -107,8 +107,8 @@ TODO
 - 2025: [Plowing through code](https://www.uidaho.edu/newsroom/robotics-scholarship-cda-campus)
 
 ## Project Videos 
--[Cutting Edge Vineyard](https://youtu.be/J3eXdCHatec?si=T-tvNOezWmk3fvN1)
--[LoRaWAN Summer Sensor Testing 2025](https://youtu.be/f4wofvKjfo4?si=K5K3n3WF9s5c11OQ)
+- [Cutting Edge Vineyard](https://youtu.be/J3eXdCHatec?si=T-tvNOezWmk3fvN1)
+- [LoRaWAN Summer Sensor Testing 2025](https://youtu.be/f4wofvKjfo4?si=K5K3n3WF9s5c11OQ)
 
 
 ## Sponsors and Partners
