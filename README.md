@@ -6,7 +6,7 @@ The SCARECRO (Sensor Collection and Remote Environment Care Reasoning  Operation
 
 ## Purpose
 The purpose of the SCARECRO system is to provide open-source, low-cost, flexible, and farmer and environmental manager focused tools for precision agriculture wireless sensing networks. More specifically, the SCARECRO system aims to accomplish the following goals:
-- Provide abstractions (and example implementations) for a variety of wried and wireless communication protocols to make off-the-shelf sensor development less painful 
+- Provide abstractions (and example implementations) for a variety of wired and wireless communication protocols to make off-the-shelf sensor development less painful 
 - Provide clear methods of integrating a variety of hardware and software sources into common infrastructure
 - Prefer and develop for open-source or generous free-tier infrastructure options whenever possible 
 - Bake in the flexibility to switch system components to different implementations without high programming overhead to meet individual needs
@@ -18,7 +18,7 @@ The purpose of the SCARECRO system is to provide open-source, low-cost, flexible
 
 
 ## Quick Links 
-TODO: Add quick links to high-usage documentation needs 
+- [Build an Outdoor Solar-Powered Raspberry Pi Unit](docs/gateway_hardware_build.md) 
 
 
 ## Repository Structure
@@ -80,7 +80,7 @@ There are several principal abstraction components of the SCARECRO system: messa
 - [Install a SCARECRO cloud unit on a Linux computer](docs/cloud_server_setup.md) 
 
 ### Hardware Setup and Installation 
-- [Building an outdoor solar-powered raspberyy pi-based SCARECRO gateway](docs/gateway_hardware_build.md) 
+- [Building an outdoor solar-powered raspberry pi-based SCARECRO gateway](docs/gateway_hardware_build.md) 
 
 ### The Data Gator 
 The Data Gator is a sensor aggregator which can support wired and wireless sensors. It can be used as a standalone sensing unit or a method of extending the range and/or sensor interfaces available on the gateway. [You can find the Data Gator project repository here.](https://github.com/Data-Gator)
@@ -107,8 +107,8 @@ TODO
 - 2025: [Plowing through code](https://www.uidaho.edu/newsroom/robotics-scholarship-cda-campus)
 
 ## Project Videos 
-[Cutting Edge Vineyard](https://youtu.be/J3eXdCHatec?si=T-tvNOezWmk3fvN1)
-[LoRaWAN Summer Sensor Testing 2025](https://youtu.be/f4wofvKjfo4?si=K5K3n3WF9s5c11OQ)
+-[Cutting Edge Vineyard](https://youtu.be/J3eXdCHatec?si=T-tvNOezWmk3fvN1)
+-[LoRaWAN Summer Sensor Testing 2025](https://youtu.be/f4wofvKjfo4?si=K5K3n3WF9s5c11OQ)
 
 
 ## Sponsors and Partners
