@@ -58,13 +58,21 @@ class OpenMeteo:
                 message["last_time"] = day_list[-1]
             except Exception as e:
                 logging.error(f"Issue parsing message time: {e}")
+            #Get the daily forecast:
+            readings_list = []
+            for i in range(0, len(day_list)):
+                readings_list.append({})
             daily_dict = message.get("daily", {})
-            for field, time_list in daily_dict.items():
-                if field == "time":
-                    message["forecast_days"] = time_list
-                else:
-                    message[field] = time_list
-            message.pop("daily", None)
+            for field, sub_list in daily_dict.items():
+                for i in range(0, len(sub_list)):
+                    readings_list[i][field] = sub_list[i]
+            message["daily"] = readings_list
+            # for field, time_list in daily_dict.items():
+            #     if field == "time":
+            #         message["forecast_days"] = time_list
+            #     else:
+            #         message[field] = time_list
+            # message.pop("daily", None)
         except Exception as e:
             logging.error(f"Error parsing open-meteo daily message {e}", exc_info=True)
         return message
